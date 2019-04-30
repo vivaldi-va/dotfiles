@@ -102,6 +102,7 @@ alias gf='git fetch --prune'
 alias sl='git shortlog --no-merges --since=\"$(date '+%Y')-$(date '+%m')-01\"'
 alias dc='docker-compose'
 alias so='source ~/.zshrc'
+alias ag='ag -u'
 
 export PATH="$HOME/.yarn/bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
