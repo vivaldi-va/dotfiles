@@ -20,6 +20,7 @@ ln -s $(pwd)/.xinitrc ~/.xinitrc
 ln -s $(pwd)/.xprofile ~/.xprofile
 ln -s $(pwd)/.Xresources ~/.Xresources
 ln -s $(pwd)/.gitconfig ~/.gitconfig
+ln -s $(pwd)/.ignore ~/.ignore
 
 
 # set up zsh
