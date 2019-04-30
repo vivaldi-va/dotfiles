@@ -1,0 +1,8 @@
+rofi.modi:          combi
+rofi.combi-modi:    window,run
+rofi.theme:        ~/.cache/wal/colors-rofi-dark.rasi
+rofi.font:         Hack 14
+rofi.lines:        5
+rofi.eh:           2
+rofi.width:        600
+kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space";
