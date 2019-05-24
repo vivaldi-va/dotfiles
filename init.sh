@@ -16,11 +16,11 @@ cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 
 # copy custom omzsh scripts if omzsh exists
 [ -d "$HOME/.oh-my-zsh" ] && cp -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
-ln -s $(pwd)/.xinitrc ~/.xinitrc
-ln -s $(pwd)/.xprofile ~/.xprofile
-ln -s $(pwd)/.Xresources ~/.Xresources
-ln -s $(pwd)/.gitconfig ~/.gitconfig
-ln -s $(pwd)/.ignore ~/.ignore
+ln -sf $(pwd)/.xinitrc ~/.xinitrc
+ln -sf $(pwd)/.xprofile ~/.xprofile
+ln -sf $(pwd)/.Xresources ~/.Xresources
+ln -sf $(pwd)/.gitconfig ~/.gitconfig
+ln -sf $(pwd)/.ignore ~/.ignore
 
 
 # set up zsh
@@ -28,7 +28,7 @@ touch ~/.zs
 touch ~/.zsh-update
 touch ~/.zsh-history
 
-ln -s $(pwd)/.zshrc ~/.zshrc
+ln -sf $(pwd)/.zshrc ~/.zshrc
 
 # install oh-my-zsh
 #rm -rf ~/.oh-my-zsh
