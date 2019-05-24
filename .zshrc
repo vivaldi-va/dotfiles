@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:~/go/bin:$HOME/.bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/$USER/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -86,6 +86,8 @@ export LANG=en_GB.UTF-8
 
 unsetopt AUTO_CD
 
+export GOPATH=$HOME/go
+
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -104,7 +106,17 @@ alias dc='docker-compose'
 alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
 
-export PATH="$HOME/.yarn/bin:$HOME/java/bin:$PATH"
+# https://gist.github.com/textarcana/4611277
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+alias more='less'
+alias less='less -m -N -g -i -J --underline-special --SILENT'
+
+alias whodoneit='git ls-tree --name-only -z -r HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain | grep "^author "|sort|uniq -c|sort -nr'
+#alias note="nvim +'normal Go' +'r!date' +'normal Go' +':NERDTreeTabsClose' +'normal ,p' ~/note.txt"
+alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
