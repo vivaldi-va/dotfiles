@@ -18,6 +18,7 @@ packer -S --noconfirm --noedit \
   neovim \
   fzf \
   the_silver_searcher \
+  fd-find \
   redshift \
   w3m
 
