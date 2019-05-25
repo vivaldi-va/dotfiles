@@ -280,7 +280,7 @@ exec_always $term -e setxkbmap -layout gb -option grp:alt_shift_toggle
 exec --no-startup-id betterlockscreen -u ~/Pictures/wallpapers -r 1920x1080
 
 # Start redshift with London coords at startup. F.lux alternative
-exec --no-startup-id redshift -l 51.5252224:-0.15237119999999998 -t 6500:3400
+exec --no-startup-id redshift
 
 # Start dunst for notifications
 exec --no-startup-id dunst
