@@ -117,6 +117,7 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias whodoneit='git ls-tree --name-only -z -r HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain | grep "^author "|sort|uniq -c|sort -nr'
 #alias note="nvim +'normal Go' +'r!date' +'normal Go' +':NERDTreeTabsClose' +'normal ,p' ~/note.txt"
 alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
+alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
