@@ -17,8 +17,8 @@
   dc = diff -w --cached
   pf = push --force-with-lease
 [filter "strongbox"]
- clean = strongbox clean %f
- smudge = strongbox smudge %f
- required = true
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
 [diff "strongbox"]
- textconv = strongbox diff
+	textconv = strongbox -diff
