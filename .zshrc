@@ -4,7 +4,8 @@ export PATH=$HOME/bin:$HOME/go/bin:$HOME/.bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+alias fdfind='fd'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -96,11 +97,9 @@ export NVM_DIR="$HOME/.nvm"
 
 alias vim='nvim'
 
+alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -o '\\w\\+-\\d\\+'"
+alias branchtype="git rev-parse --abbrev-ref HEAD | grep -o '\\w\\+\\/'"
 alias cm='echo "$(ticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -t ~/.gitcommittemplate'
-alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -o 'WIRE-\\d\\+'"
-
-alias rocm='echo "$(roticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -t ~/.gitcommittemplate'
-alias roticketnum="git rev-parse --abbrev-ref HEAD | grep -o 'RO-\\d\\+'"
 
 alias gf='git fetch --prune'
 alias sl='git shortlog --no-merges --since=\"$(date '+%Y')-$(date '+%m')-01\"'
