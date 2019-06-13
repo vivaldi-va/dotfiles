@@ -1,5 +1,6 @@
 #!/bin/bash
 
+machine=$(./Scripts/machine.sh)
 
 # apply config
 rm -f \
@@ -11,14 +12,18 @@ rm -f \
 
 git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
 cp -rf --symbolic-link $(pwd)/.config/* ~/.config/
-cp -rf --symbolic-link $(pwd)/.xresources/* ~/.xresources/
-cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
+if [ $machine = 'Linux' ]; then
+  cp -rf --symbolic-link $(pwd)/.xresources/* ~/.xresources/
+  cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
+fi
 
 # copy custom omzsh scripts if omzsh exists
 [ -d "$HOME/.oh-my-zsh" ] && cp -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
-ln -sf $(pwd)/.xinitrc ~/.xinitrc
-ln -sf $(pwd)/.xprofile ~/.xprofile
-ln -sf $(pwd)/.Xresources ~/.Xresources
+if [ $machine = 'Linux' ]; then
+  ln -sf $(pwd)/.xinitrc ~/.xinitrc
+  ln -sf $(pwd)/.xprofile ~/.xprofile
+  ln -sf $(pwd)/.Xresources ~/.Xresources
+fi
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.ignore ~/.ignore
 
