@@ -4,8 +4,18 @@ export PATH=$HOME/bin:$HOME/go/bin:$HOME/.bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-alias fdfind='fd'
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# use correct command for fd (e.g. mac uses fd, linux uses fdfind)
+if [[ ! -z $(command -v fd) ]]; then
+  fd='fd'
+fi
+
+if [[  ! -z $(command -v fdfind)  ]]; then
+  fd='fdfind'
+fi
+
+export FZF_DEFAULT_COMMAND="${fd} --type f --hidden --follow --exclude .git"
+
+echo $FZF_DEFAULT_COMMAND
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
