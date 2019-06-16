@@ -20,6 +20,7 @@ Dot files for my Arch Linux + i3wm setup used on my Lenovo T490s.
 - i3
 - dunst
 - neovim
+- fd
 - polybar
 - chromium
 - betterlockscreen

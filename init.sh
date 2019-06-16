@@ -27,6 +27,11 @@ fi
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.ignore ~/.ignore
 
+if [ -d "$HOME/Dropbox" ]; then
+  touch $HOME/Dropbox/note.txt
+  ln -sf $HOME/Dropbox/note.txt $HOME/note.txt
+fi
+
 
 # set up zsh
 touch ~/.zs
