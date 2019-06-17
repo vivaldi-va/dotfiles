@@ -261,7 +261,7 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id compton --xrender-sync-fence
 
 #Unclutter makes the mouse invisible after a brief period
-# exec --no-startup-id unclutter
+exec --no-startup-id unclutter
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
