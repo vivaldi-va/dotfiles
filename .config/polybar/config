@@ -53,11 +53,11 @@ font-3 = "Font Awesome 5 Pro:style=Regular:pixelsize=12;1"
 font-4 = "Font Awesome 5 Pro:style=Solid:pixelsize=12;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
-modules-left = i3
-modules-center = xwindow
+modules-left = i3 xwindow
+#modules-center = xwindow
 modules-right = xkeyboard volume xbacklight wlan battery date
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 
 ;wm-restack = bspwm
