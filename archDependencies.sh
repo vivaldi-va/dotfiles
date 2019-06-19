@@ -20,7 +20,8 @@ packer -S --noconfirm --noedit \
   the_silver_searcher \
   fd \
   redshift \
-  w3m
+  w3m \
+  scrot
 
 echo '#######################'
 echo 'installing development and util applications'
@@ -52,5 +53,6 @@ packer -S --noconfirm --noedit \
   libcurl-gnutls spotify \
   slack-desktop \
   dropbox \
-  vlc
+  vlc \
+  imgur-screenshot-git
 
