@@ -21,7 +21,7 @@ packer -S --noconfirm --noedit \
   fd \
   redshift \
   w3m \
-  scrot
+  maim
 
 echo '#######################'
 echo 'installing development and util applications'
