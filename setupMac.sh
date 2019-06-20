@@ -22,3 +22,9 @@ git clone https://github.com/powerline/fonts.git ~/powerline-fonts && \
 screenshot_dir=~/Pictures/screenshots
 mkdir -p $screenshot_dir
 defaults write com.apple.screencapture location $screenshot_dir
+
+# disable airdrop
+defaults write com.apple.NetworkBrowser DisableAirDrop -bool YES
+
+# disable remote disk
+sudo defaults write /Library/Preferences/com.apple.NetworkBrowser EnableODiskBrowsing -bool false
