@@ -4,6 +4,11 @@ export PATH=$HOME/bin:$HOME/go/bin:$HOME/.bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
+if [[ -z $(echo $SSH_AGENT_PID) ]]; then
+  eval `ssh-agent -s` > /dev/null
+fi
+
 # use correct command for fd (e.g. mac uses fd, linux uses fdfind)
 if [[ ! -z $(command -v fd) ]]; then
   fd='fd'
