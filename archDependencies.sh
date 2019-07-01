@@ -22,7 +22,8 @@ packer -S --noconfirm --noedit \
   redshift \
   w3m \
   maim \
-  pulseaudio-ctl
+  pulseaudio-ctl \
+  tmux
 
 echo '#######################'
 echo 'installing development and util applications'
