@@ -27,6 +27,7 @@ if [ $machine = 'Linux' ]; then
 fi
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.ignore ~/.ignore
+ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 
 if [ -d "$HOME/Dropbox" ]; then
   touch $HOME/Dropbox/note.txt
