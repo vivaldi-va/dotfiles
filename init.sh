@@ -27,6 +27,7 @@ if [ $machine = 'Linux' ]; then
 fi
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.ignore ~/.ignore
+ln -sf $(pwd)/.yarnrc ~/.yarnrc
 
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
