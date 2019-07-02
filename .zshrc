@@ -1,6 +1,8 @@
-if [ -f /etc/profile ]; then
-  PATH=""
-  source /etc/profile
+if [[ $(uname -s) =~ "Darwin".* ]]; then
+  if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+  fi
 fi
 
 # If you come from bash you might have to change your $PATH.
