@@ -28,3 +28,6 @@ defaults write com.apple.NetworkBrowser DisableAirDrop -bool YES
 
 # disable remote disk
 sudo defaults write /Library/Preferences/com.apple.NetworkBrowser EnableODiskBrowsing -bool false
+
+# stop generating .DS_Store files
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
