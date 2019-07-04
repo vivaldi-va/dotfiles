@@ -18,6 +18,7 @@ if [ $machine = 'Linux' ]; then
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
+[ -d "$HOME/.irssi" ] && mkdir -p ~/.irssi
 cp -rf --symbolic-link $(pwd)/.irssi/* ~/.irssi/
 
 # copy custom omzsh scripts if omzsh exists
