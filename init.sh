@@ -18,6 +18,8 @@ if [ $machine = 'Linux' ]; then
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
+cp -rf --symbolic-link $(pwd)/.irssi/* ~/.irssi/
+
 # copy custom omzsh scripts if omzsh exists
 [ -d "$HOME/.oh-my-zsh" ] && cp -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
 if [ $machine = 'Linux' ]; then

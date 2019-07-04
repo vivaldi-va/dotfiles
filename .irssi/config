@@ -2,31 +2,31 @@
 servers = (
   { address = "irc.stealth.net"; chatnet = "IRCnet"; port = "6668"; },
   { address = "irc.efnet.net"; chatnet = "EFNet"; port = "6667"; },
-  {
+  { 
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
   },
   { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
-  {
+  { 
     address = "irc.freenode.net";
     chatnet = "freenode";
     port = "6667";
   },
   { address = "irc.gnome.org"; chatnet = "GIMPNet"; port = "6667"; },
   { address = "irc.ptlink.net"; chatnet = "PTlink"; port = "6667"; },
-  {
+  { 
     address = "irc.sorcery.net";
     chatnet = "SorceryNet";
     port = "6667";
   },
-  {
+  { 
     address = "irc.hashmark.net";
     chatnet = "Hashmark";
     port = "6667";
   },
   { address = "irc.ptnet.org"; chatnet = "PTnet"; port = "6667"; },
-  {
+  { 
     address = "irc.azzurra.org";
     chatnet = "AzzurraNET";
     port = "6667";
@@ -291,7 +291,6 @@ settings = {
     beep_msg_level = "msgs";
     beep_when_away = "no";
     beep_when_window_active = "no";
-    bell_beeps = "yes";
     completion_char = ",";
     hide_server_tags = "yes";
     hilight_nick_matches = "no";
@@ -299,7 +298,7 @@ settings = {
     window_check_level_first = "yes";
     window_history = "yes";
   };
-  core = {
+  core = { 
     real_name = "vivaldi";
     user_name = "vivaldi";
     nick = "vivaldi";
