@@ -1,2 +1,6 @@
 credentials.conf
+
 .irssi/logs
+
+# irssi config autosave
+config.autosave
