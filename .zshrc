@@ -127,6 +127,8 @@ alias dc='docker-compose'
 alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
 
+alias ta='tmux attach-session -t'
+
 # https://gist.github.com/textarcana/4611277
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
