@@ -119,7 +119,7 @@ alias vim='nvim'
 
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
-alias cm='echo "$(ticketnum): $commit_msg" > ~/.gitcommittemplate; git commit -t ~/.gitcommittemplate'
+alias cm='echo "$(ticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -t ~/.gitcommittemplate'
 
 alias gf='git fetch --prune'
 alias sl='git shortlog --no-merges --since=\"$(date '+%Y')-$(date '+%m')-01\"'
