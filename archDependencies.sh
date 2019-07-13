@@ -35,7 +35,8 @@ packer -S --noconfirm --noedit \
   libinput-gestures \
   betterlockscreen \
   yarn \
-  docker
+  docker \
+  weechat
 
 
 # install docker/docker-compose
