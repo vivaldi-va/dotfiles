@@ -12,7 +12,8 @@ brew install --upgrade \
   fzf \
   the_silver_searcher \
   fd \
-  tmux
+  tmux \
+  highlight
 
 echo '#######################'
 echo 'installing development and util applications'

@@ -136,11 +136,11 @@ alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
 alias ta='tmux attach-session -t'
 alias jq="jq -R 'fromjson? | select(type == \"object\")'"
 
-# https://gist.github.com/textarcana/4611277
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=" -R "
+# Pipe Highlight to less https://gist.github.com/textarcana/4611277
+export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
+export LESS=" -R"
+alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
-alias less='less -m -N -g -i -J --underline-special --SILENT'
 
 alias whodoneit='git ls-tree --name-only -z -r HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain | grep "^author "|sort|uniq -c|sort -nr'
 #alias note="nvim +'normal Go' +'r!date' +'normal Go' +':NERDTreeTabsClose' +'normal ,p' ~/note.txt"
