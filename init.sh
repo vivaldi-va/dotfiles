@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ./Scripts/isWsl.sh
 machine=$(./Scripts/machine.sh)
 
 # apply config
@@ -16,6 +17,11 @@ cp -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
 if [ $machine = 'Linux' ]; then
   cp -rf --symbolic-link $(pwd)/.xresources/* ~/.xresources/
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
+fi
+
+if is_wsl; then
+  # forward docker port fron windows host
+  echo 'wsl'
 fi
 
 [ -d "$HOME/.irssi" ] && mkdir -p ~/.irssi
