@@ -134,7 +134,7 @@ alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
 
 alias ta='tmux attach-session -t'
-alias jq="jq -R 'fromjson? | select(type == \"object\")'"
+alias jqr="jq -R 'fromjson? | select(type == \"object\")'"
 
 alias yi='yarn install --frozen-lockfile'
 
