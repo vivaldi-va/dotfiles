@@ -138,6 +138,8 @@ alias jqr="jq -R 'fromjson? | select(type == \"object\")'"
 
 alias yi='yarn install --frozen-lockfile'
 
+alias xclip='xclip -selection clipboard'
+
 # Pipe Highlight to less https://gist.github.com/textarcana/4611277
 export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 export LESS=" -R"
