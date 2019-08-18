@@ -5,7 +5,7 @@
 echo '#######################'
 echo 'installing base applications'
 echo '#######################'
-packer -S --noconfirm --noedit \
+packer -S --noconfirm --noedit --needed \
   zsh \
   pulseaudio-alsa \
   compton \
@@ -28,7 +28,7 @@ packer -S --noconfirm --noedit \
 echo '#######################'
 echo 'installing development and util applications'
 echo '#######################'
-packer -S --noconfirm --noedit \
+packer -S --noconfirm --noedit --needed \
   neofetch \
   htop \
   libinput \
@@ -47,7 +47,7 @@ sudo usermod -aG docker $USER
 echo '#######################'
 echo 'installing additional applications'
 echo '#######################'
-packer -S --noconfirm --noedit \
+packer -S --noconfirm --noedit --needed \
   chromium \
   chromium-dev \
   google-chrome \

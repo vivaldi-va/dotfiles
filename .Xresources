@@ -31,6 +31,7 @@
 URxvt*scrollBar: false
 
 ;URxvt*font:	xft:xos4 Hack:style=regular:size=10:antialias=true
-URxvt*font:	xft:Hack:style=regular:size=12
+URxvt*font:	xft:Hack:style=regular:size=12:antialias=true
 URxvt*iso14755: false
 URxvt*iso14755_52: false
+URxvt.letterSpace: 1
