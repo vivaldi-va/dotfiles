@@ -15,7 +15,6 @@ git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-w
 cp -rf --symbolic-link $(pwd)/.config/* ~/.config/
 cp -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
 if [ $machine = 'Linux' ]; then
-  cp -rf --symbolic-link $(pwd)/.xresources/* ~/.xresources/
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
