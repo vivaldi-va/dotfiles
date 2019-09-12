@@ -158,6 +158,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/j
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if $(./Scripts/isWsl.sh); then
-  echo 'isWsl'
   export DOCKER_HOST=tcp://localhost:2375
 fi

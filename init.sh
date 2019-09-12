@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ./Scripts/isWsl.sh
+source ./Scripts/getDistro.sh
 machine=$(./Scripts/machine.sh)
 
 # apply config
@@ -14,7 +15,7 @@ rm -f \
 git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
 cp -rf --symbolic-link $(pwd)/.config/* ~/.config/
 cp -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
-if [ $machine = 'Linux' ]; then
+if [ $OS = 'Arch Linux' ]; then
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
@@ -28,7 +29,7 @@ cp -rf --symbolic-link $(pwd)/.irssi/* ~/.irssi/
 
 # copy custom omzsh scripts if omzsh exists
 [ -d "$HOME/.oh-my-zsh" ] && cp -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
-if [ $machine = 'Linux' ]; then
+if [ $OS = 'Arch Linux' ]; then
   ln -sf $(pwd)/.xinitrc ~/.xinitrc
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
