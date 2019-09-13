@@ -138,7 +138,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -251,9 +251,9 @@ bindsym $mod+i             exec --no-startup-id maim -i $(xdotool getactivewindo
 # Misc. Commands to run at start of i3wm (boot) alternative to writing it to ~/.xinitrc
 
 # xinput startups, to make sure to enable natural scrolling and right click etc.
-exec xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop 10 "libinput Click Method Enabled" 0 1
-exec xinput set-prop 10 "libinput Tapping Enabled" 1
+exec xinput set-prop 11 "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop 11 "libinput Click Method Enabled" 0 1
+exec xinput set-prop 11 "libinput Tapping Enabled" 1
 
 # Enable gesture controls on startup - not needed anymore due to "libinput-gestures-setup autostart" and proper libinput configuration..
 exec --no-startup-id libinput-gestures-setup start
