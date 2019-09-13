@@ -19,6 +19,7 @@ packer -S --noconfirm --noedit \
   fzf \
   the_silver_searcher \
   fd \
+  universal-ctags-git \
   redshift \
   w3m \
   maim \

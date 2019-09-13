@@ -20,14 +20,6 @@ if [[ $OS == 'Arch Linux' ]]; then
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
-if is_wsl; then
-  # forward docker port fron windows host
-  echo 'wsl'
-fi
-
-[ -d "$HOME/.irssi" ] && mkdir -p ~/.irssi
-cp -rf --symbolic-link $(pwd)/.irssi/* ~/.irssi/
-
 # Copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then
   echo 'x files'
@@ -44,7 +36,7 @@ ln -sf $(pwd)/.yarnrc ~/.yarnrc
 [ -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 
-# set up dropbox-stored not taking
+# set up dropbox-stored note taking
 if [ -d "$HOME/Dropbox" ]; then
   touch $HOME/Dropbox/note.txt
   ln -sf $HOME/Dropbox/note.txt $HOME/note.txt
