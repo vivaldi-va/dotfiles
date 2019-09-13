@@ -15,7 +15,8 @@ rm -f \
 git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
 cp -rf --symbolic-link $(pwd)/.config/* ~/.config/
 cp -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
-if [ $OS = 'Arch Linux' ]; then
+
+if [[ $OS == 'Arch Linux' ]]; then
   cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
 fi
 
@@ -28,7 +29,8 @@ fi
 cp -rf --symbolic-link $(pwd)/.irssi/* ~/.irssi/
 
 # Copy x files for arch theme etc.
-if [ $OS = 'Arch Linux' ]; then
+if [[ $OS == 'Arch Linux' ]]; then
+  echo 'x files'
   ln -sf $(pwd)/.xinitrc ~/.xinitrc
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
