@@ -1,9 +1,14 @@
 #!/bin/bash
 
+source ./Scripts/getDistro.sh
 machine=$(./Scripts/machine.sh)
 
-if [ $machine = "Linux" ]; then
+if [[ $OS == 'Arch Linux' ]]; then
   sh -c "$(./archDependencies.sh)"
+fi
+
+if [[ $OS == 'Ubuntu' ]]; then
+  sh -c "$(./ubuntuDependencies.sh)"
 fi
 
 if [ $machine = "Mac" ]; then
