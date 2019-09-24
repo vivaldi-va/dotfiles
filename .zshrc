@@ -121,6 +121,8 @@ export GOPATH=$HOME/go
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# unalias  gcp tot allow use of gnu cp
+unalias -m 'gcp'
 alias vim='nvim'
 
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z]+-[0-9]+'"
