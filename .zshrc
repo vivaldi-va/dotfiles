@@ -121,7 +121,7 @@ export GOPATH=$HOME/go
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# unalias  gcp tot allow use of gnu cp
+# unalias  gcp to allow use of gnu cp
 unalias -m 'gcp'
 alias vim='nvim'
 

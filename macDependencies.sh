@@ -16,7 +16,6 @@ brew install --upgrade \
   tmux \
   highlight
 
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 echo '#######################'
 echo 'installing development and util applications'
@@ -25,4 +24,4 @@ brew install --upgrade \
   neofetch \
   htop \
   yarn
-
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
