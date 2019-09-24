@@ -12,17 +12,24 @@ rm -f \
   ~/.gitconfig \
   ~/.zshrc
 
-git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
-cp -rf --symbolic-link $(pwd)/.config/* ~/.config/
-cp -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
-
-if [[ $OS == 'Arch Linux' ]]; then
-  cp -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
+# use coreutils cp if on mac
+if [[ $OS == 'Darwin' ]]; then
+  copy=gcp
+else
+  copy=cp
 fi
 
-# Copy x files for arch theme etc.
+
+git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
+$copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
+$copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
+
 if [[ $OS == 'Arch Linux' ]]; then
-  echo 'x files'
+  $copy -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
+fi
+
+# copy x files for arch theme etc.
+if [[ $OS == 'Arch Linux' ]]; then
   ln -sf $(pwd)/.xinitrc ~/.xinitrc
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
@@ -53,7 +60,8 @@ touch ~/.zs
 touch ~/.zsh-update
 touch ~/.zsh-history
 # copy custom omzsh scripts if omzsh exists
-[ -d "$HOME/.oh-my-zsh" ] && cp -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
+[ -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh
+$copy -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
 ln -sf $(pwd)/.zshrc ~/.zshrc
 
 # set up vim/neovim

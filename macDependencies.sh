@@ -6,6 +6,7 @@ echo '#######################'
 echo 'installing base applications'
 echo '#######################'
 brew install --upgrade \
+  coreutils \
   zsh \
   vim \
   neovim/neovim/neovim \
