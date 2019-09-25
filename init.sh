@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source ./Scripts/isWsl.sh
 source ./Scripts/getDistro.sh
 machine=$(./Scripts/machine.sh)
 
@@ -22,9 +21,9 @@ else
   copy=cp
 fi
 
-
-[ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
+# symlink .config directory and contents to $HOME/.config
 $copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
+
 $copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
 
 if [[ $OS == 'Arch Linux' ]]; then
@@ -36,6 +35,7 @@ if [[ $OS == 'Arch Linux' ]]; then
   ln -sf $(pwd)/.xinitrc ~/.xinitrc
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
+  [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
 fi
 
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
