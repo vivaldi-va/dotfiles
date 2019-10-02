@@ -1,6 +1,24 @@
 # Dotfiles
 Dot files for my Arch Linux + i3wm setup used on my Lenovo T490s.
 
+# Installation
+
+**Dependencies**
+```shell
+# install OS specific dependencies
+# (configured for Ubuntu, MacOS and Arch)
+./installDeps.sh
+```
+
+**Init**
+```shell
+# copy config files
+# again, configured for OS
+# e.g. will only apply .x* files on Arch
+./init.sh
+
+```
+
 # Screenshots
 
 ![Screenshot](https://i.imgur.com/fapJT2j.jpg)
