@@ -159,6 +159,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/j
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# export docker host to reference native
+# windows docker daemon running on host machine
 if $(iswsl); then
   export DOCKER_HOST=tcp://localhost:2375
 fi
