@@ -5,7 +5,7 @@
 echo '#######################'
 echo 'installing base applications'
 echo '#######################'
-brew install --upgrade \
+brew install \
   coreutils \
   zsh \
   vim \
@@ -20,7 +20,7 @@ brew install --upgrade \
 echo '#######################'
 echo 'installing development and util applications'
 echo '#######################'
-brew install --upgrade \
+brew install \
   neofetch \
   htop \
   yarn
