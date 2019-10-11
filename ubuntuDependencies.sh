@@ -31,3 +31,12 @@ cd ctags
 ./configure
 make
 sudo make install
+
+# Qogir theme
+sudo apt install -qq gtk2-engines-murrine gtk2-engines-pixbuf
+wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/qogir.tar.gz && \
+  tar xvzf ~/qogir.tar.gz && \
+  cd ~/qogir && \
+  ./install.sh -i && \
+  rm -rf ~/qogir ~/qogir.tar.gz
+
