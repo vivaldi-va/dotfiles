@@ -37,7 +37,8 @@ packer -S --noconfirm --noedit \
   betterlockscreen \
   yarn \
   docker \
-  weechat
+  weechat \
+  ranger
 
 
 # install docker/docker-compose
