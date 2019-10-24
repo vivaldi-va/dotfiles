@@ -2,6 +2,9 @@
 
 # install deps
 
+## update database
+pacman -Syy
+
 echo '#######################'
 echo 'installing base applications'
 echo '#######################'
@@ -50,6 +53,7 @@ echo '#######################'
 echo 'installing additional applications'
 echo '#######################'
 packer -S --noconfirm --noedit \
+  firefox \
   chromium \
   chromium-dev \
   google-chrome \
