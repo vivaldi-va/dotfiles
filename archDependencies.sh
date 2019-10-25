@@ -27,7 +27,8 @@ packer -S --noconfirm --noedit \
   w3m \
   maim \
   pulseaudio-ctl \
-  tmux
+  tmux \
+  sxiv
 
 echo '#######################'
 echo 'installing development and util applications'
