@@ -27,8 +27,7 @@ packer -S --noconfirm --noedit \
   w3m \
   maim \
   pulseaudio-ctl \
-  tmux \
-  sxiv
+  tmux
 
 echo '#######################'
 echo 'installing development and util applications'
@@ -36,8 +35,7 @@ echo '#######################'
 packer -S --noconfirm --noedit \
   neofetch \
   htop \
-  libinput \
-  libinput-gestures \
+  libinput libinput-gestures \
   betterlockscreen \
   yarn \
   docker \
@@ -64,5 +62,8 @@ packer -S --noconfirm --noedit \
   slack-desktop \
   dropbox \
   vlc \
-  imgur-screenshot-git
+  imgur-screenshot-git \
+  sxiv \
+  mpv \
+  youtube-dl
 
