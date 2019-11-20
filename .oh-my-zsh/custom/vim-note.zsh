@@ -1,3 +1,3 @@
 function word() {
-  (vim +'normal Go' +'normal ,p' "$@")
+  (vim +'normal ,p' "$@")
 }
