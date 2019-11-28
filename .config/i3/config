@@ -251,9 +251,9 @@ bindsym $mod+i             exec --no-startup-id maim -i $(xdotool getactivewindo
 # Misc. Commands to run at start of i3wm (boot) alternative to writing it to ~/.xinitrc
 
 # xinput startups, to make sure to enable natural scrolling and right click etc.
-exec xinput set-prop 11 "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop 11 "libinput Click Method Enabled" 0 1
-exec xinput set-prop 11 "libinput Tapping Enabled" 1
+exec xinput set-prop 'Elan Touchpad' "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop 'Elan Touchpad' "libinput Click Method Enabled" 0 1
+exec xinput set-prop 'Elan Touchpad' "libinput Tapping Enabled" 1
 
 # Enable gesture controls on startup - not needed anymore due to "libinput-gestures-setup autostart" and proper libinput configuration..
 exec --no-startup-id libinput-gestures-setup start
