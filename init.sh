@@ -45,6 +45,11 @@ ln -sf $(pwd)/.yarnrc ~/.yarnrc
 # tmux config
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
+if [[ $OS == 'Arch Linux' ]]; then
+  tmux source-file ~/.cache/wal/colors.tmux.conf
+else
+  tmux set-option -g @plugin 'egel/tmux-gruvbox'
+fi
 
 # set up dropbox-stored note taking
 if [ -d "$HOME/Dropbox" ]; then
