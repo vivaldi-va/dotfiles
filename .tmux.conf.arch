@@ -1,0 +1,3 @@
+source-file ~/.cache/wal/colors.tmux.conf
+
+#; vim:ft=tmux

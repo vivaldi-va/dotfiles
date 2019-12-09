@@ -46,6 +46,9 @@ ln -sf $(pwd)/.yarnrc ~/.yarnrc
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 
+[ "$(lsb_release -si)" != "Arch" ] && ln -sf $(pwd)/.tmux.conf.default ~/.tmux.conf.local
+[ "$(lsb_release -si)" = "Arch" ] && ln -sf $(pwd)/.tmux.conf.arch ~/.tmux.conf.local
+
 # set up dropbox-stored note taking
 if [ -d "$HOME/Dropbox" ]; then
   touch $HOME/Dropbox/note.txt
