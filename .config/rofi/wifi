@@ -17,3 +17,5 @@ FIELDS=SSID,SECURITY,BARS
 
 #font
 FONT="Hack 14"
+
+#; vim:ft=sh

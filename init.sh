@@ -36,16 +36,18 @@ if [[ $OS == 'Arch Linux' ]]; then
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
   [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
+  [ ! -d "$HOME/.config/scripts/rofi-power-menu" ] && git clone https://github.com/vivaldi-va/rofi-power-menu.git ~/.config/scripts/rofi-power-menu
 fi
 
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.ignore ~/.ignore
-ln -sf $(pwd)/.yarnrc ~/.yarnrc
 
 # tmux config
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 
+## use OS-specific config overrides, setting correct theme etc
+## e.g. arch uses theme configured for Wal
 [ "$(lsb_release -si)" != "Arch" ] && ln -sf $(pwd)/.tmux.conf.default ~/.tmux.conf.local
 [ "$(lsb_release -si)" = "Arch" ] && ln -sf $(pwd)/.tmux.conf.arch ~/.tmux.conf.local
 

@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code 10
+font pango:Fira Code 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -240,6 +240,7 @@ bindsym XF86AudioNext           exec dbus-send --print-reply --dest=org.mpris.Me
 bindsym XF86AudioPrev           exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym $mod+F4              exec $term -e scrot
 bindsym $mod+shift+w          exec ~/.config/scripts/rofi-wifi-menu/rofi-wifi-menu.sh
+bindsym $mod+shift+p          exec ~/.config/scripts/rofi-power-menu/rofi-power-menu.sh
 #bindsym $mod+Shift+w            exec $term -e nmcli device wifi rescan
 #bindsym $mod+b              exec --no-startup-id bluej
 #bindsym $mod+s              exec --no-startup-id spotify

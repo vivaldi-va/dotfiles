@@ -45,7 +45,7 @@ module-margin-left = 2
 module-margin-right = 0
 
 #font-0 = "xos4 Hack:pixelsize=14;1"
-font-0 = "Hack:pixelsize=12;1"
+font-0 = "Fira Code:pixelsize=12;1"
 #font-0 = "FiraMono:pixelsize=12"
 font-1 = unifont:fontformat-truetype:size=8:antialias=false;0
 font-2 = "Wuncon Siji:pixelsize=10;1"
@@ -55,7 +55,7 @@ font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 modules-left = i3 xwindow
 #modules-center = xwindow
-modules-right = xkeyboard volume xbacklight wlan battery date
+modules-right = xkeyboard volume xbacklight wlan battery date powermenu
 
 tray-position = none
 tray-padding = 2
@@ -336,33 +336,12 @@ ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
-type = custom/menu
+type = custom/script
+format = <label>
 
-expand-right = true
-
+exec = echo ""
+click-left = ~/.config/scripts/rofi-power-menu/rofi-power-menu.sh
 format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true

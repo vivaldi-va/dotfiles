@@ -1,0 +1,12 @@
+POSITION=5
+
+#y-offset
+YOFF=-25
+
+#x-offset
+XOFF=0
+
+#font
+FONT="Fira Code 14"
+
+#; vim:ft=sh
