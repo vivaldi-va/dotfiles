@@ -224,29 +224,29 @@ bindsym $mod+Shift+o              exec $term -e ranger
 bindsym $mod+F1                   exec $term -e vim ~/.config/i3/config
 
 # Screen brightness control
-bindsym XF86MonBrightnessDown     exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp       exec --no-startup-id xbacklight -inc 15
+bindsym XF86MonBrightnessDown     exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp       exec --no-startup-id xbacklight -inc 5
 
 # Volume control
-bindsym XF86AudioRaiseVolume      exec /usr/bin/pulseaudio-ctl up 10
-bindsym XF86AudioLowerVolume      exec /usr/bin/pulseaudio-ctl down 10
+bindsym XF86AudioRaiseVolume      exec /usr/bin/pulseaudio-ctl up 5
+bindsym XF86AudioLowerVolume      exec /usr/bin/pulseaudio-ctl down 5
 bindsym XF86AudioMute             exec pactl set-sink-mute 0 toggle
 
 # Play/pause
 bindsym XF86AudioPlay             exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 # Next/prev
-bindsym XF86AudioNext           exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym XF86AudioPrev           exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym $mod+F4              exec $term -e scrot
-bindsym $mod+shift+w          exec ~/.config/scripts/rofi-wifi-menu/rofi-wifi-menu.sh
-bindsym $mod+shift+p          exec ~/.config/scripts/rofi-power-menu/rofi-power-menu.sh
+bindsym XF86AudioNext             exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev             exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym $mod+F4                   exec $term -e scrot
+bindsym $mod+shift+w              exec ~/.config/scripts/rofi-wifi-menu/rofi-wifi-menu.sh
+bindsym $mod+shift+p              exec ~/.config/scripts/rofi-power-menu/rofi-power-menu.sh
 #bindsym $mod+Shift+w            exec $term -e nmcli device wifi rescan
 #bindsym $mod+b              exec --no-startup-id bluej
 #bindsym $mod+s              exec --no-startup-id spotify
-bindsym $mod+shift+i            exec --no-startup-id imgur-screenshot
-bindsym $mod+ctrl+i             exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-bindsym $mod+i             exec --no-startup-id maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%s).png
+bindsym $mod+shift+i              exec --no-startup-id imgur-screenshot
+bindsym $mod+ctrl+i               exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+bindsym $mod+i                    exec --no-startup-id maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%s).png
 
 
 #  Startup Exec's  #
