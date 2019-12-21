@@ -65,5 +65,7 @@ packer -S --noconfirm --noedit \
   imgur-screenshot-git \
   sxiv \
   mpv \
-  youtube-dl
+  youtube-dl \
+  mupdf jbig2dec \
+  surf
 
