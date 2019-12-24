@@ -282,6 +282,9 @@ exec_always $term -e setxkbmap -layout gb -option grp:alt_shift_toggle
 # betterlockscreen setup to cache random image from Landscapes folder and make it the lock screen.
 exec --no-startup-id betterlockscreen -u ~/Pictures/wallpapers -r 1920x1080
 
+# set default browser to firefox
+exec --no-startup-id xdg-settings set default-web-browser firefox
+
 # Start redshift with London coords at startup. F.lux alternative
 exec --no-startup-id redshift
 
