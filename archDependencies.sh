@@ -27,7 +27,10 @@ packer -S --noconfirm --noedit \
   w3m \
   maim \
   pulseaudio-ctl \
-  tmux
+  tmux \
+  unrar \
+  p7zip \
+  udisks2
 
 echo '#######################'
 echo 'installing development and util applications'
