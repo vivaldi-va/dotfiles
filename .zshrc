@@ -13,6 +13,8 @@ if [[ $(uname -s) =~ "Darwin".* ]]; then
   export PATH=/usr/local/opt/ruby/bin:$PATH
 fi
 
+# rust paths
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
