@@ -8,7 +8,7 @@
   [[default]]
     background_color = "#282828"
     cursor_color = "#aaaaaa"
-    font = Fira Code weight=453 11
+    font = Iosevka 12
     foreground_color = "#ebdbb2"
     show_titlebar = False
     scrollbar_position = hidden
