@@ -127,7 +127,7 @@ export NVM_DIR="$HOME/.nvm"
 unalias -m 'gcp'
 alias vim='nvim'
 
-alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z]+-[0-9]+'"
+alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z0-9]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
 alias cm='echo "$(ticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -vt ~/.gitcommittemplate'
 
