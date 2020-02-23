@@ -30,7 +30,8 @@ packer -S --noconfirm --noedit \
   tmux \
   unrar \
   p7zip \
-  udisks2
+  udisks2 \
+  inotify-tools
 
 echo '#######################'
 echo 'installing development and util applications'
