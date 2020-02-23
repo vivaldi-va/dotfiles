@@ -61,8 +61,8 @@ fi
 sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 
 # Crontabs
-touch /var/log/cron.log
-$copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
+sudo touch /var/log/cron.log
+sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
 
 
 # set up zsh

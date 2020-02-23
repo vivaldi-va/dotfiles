@@ -31,7 +31,9 @@ packer -S --noconfirm --noedit \
   unrar \
   p7zip \
   udisks2 \
-  inotify-tools
+  inotify-tools \
+  cronie \
+  rclone
 
 echo '#######################'
 echo 'installing development and util applications'
