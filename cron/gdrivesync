@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+@reboot /usr/local/bin/watchDirectory.sh $HOME/Drive /usr/local/bin/gdrivebackup.sh
+

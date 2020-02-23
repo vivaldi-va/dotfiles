@@ -57,6 +57,13 @@ if [ -d "$HOME/Dropbox" ]; then
   ln -sf $HOME/Dropbox/note.txt $HOME/note.txt
 fi
 
+# copy scripts
+sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
+
+# Crontabs
+touch /var/log/cron.log
+$copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
+
 
 # set up zsh
 # install oh-my-zsh

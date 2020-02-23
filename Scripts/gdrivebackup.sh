@@ -13,3 +13,4 @@
   --copy-links \
   "$HOME/Drive" \
   "google-drive:Sync"
+
