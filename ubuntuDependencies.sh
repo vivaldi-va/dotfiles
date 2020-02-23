@@ -42,3 +42,7 @@ wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/q
   ./install.sh -i && \
   rm -rf ~/qogir ~/qogir.tar.gz
 
+# SILE typesetter
+sudo add-apt-repository ppa:sile-typesetter/sile
+sudo apt update
+sudo apt install sile
