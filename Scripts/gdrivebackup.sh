@@ -2,7 +2,9 @@
 
 [ ! -d "$HOME/Drive" ] && mkdir $HOME/Drive
 
-/usr/bin/rclone copy \
+rclone_exec=$(which rclone)
+
+$rclone_exec copy \
   --verbose \
   --transfers 30 \
   --checkers 8 \
@@ -15,7 +17,7 @@
   "$HOME/Drive"
 
 
-/usr/bin/rclone sync \
+$rclone_exec sync \
   --verbose \
   --transfers 30 \
   --checkers 8 \
