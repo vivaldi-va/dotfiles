@@ -66,15 +66,14 @@ sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
 
 
 # set up zsh
-# install oh-my-zsh
-#rm -rf ~/.oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# restore zshrc
+
+## restore zshrc
 [ -f ~/.zshrc.pre-oh-my-zsh ] && mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 touch ~/.zs
 touch ~/.zsh-update
 touch ~/.zsh-history
-# copy custom omzsh scripts if omzsh exists
+
+## copy custom omzsh scripts if omzsh exists
 [ ! -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh
 $copy -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
 ln -sf $(pwd)/.zshrc ~/.zshrc
