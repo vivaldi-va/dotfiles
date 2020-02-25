@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # install deps
 
 echo '#######################'
@@ -16,6 +19,9 @@ brew install \
   tmux \
   highlight
 
+# install oh-my-zsh
+rm -rf ~/.oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo '#######################'
 echo 'installing development and util applications'
@@ -26,10 +32,11 @@ brew install \
   yarn
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
-
-# install oh-my-zsh
-rm -rf ~/.oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# install powerline fonts
+git clone https://github.com/powerline/fonts.git ~/powerline-fonts && \
+  cd ~/powerline-fonts && \
+  ./install.sh && \
+  rm -rf ~/powerline-fonts
 
 # install rclone
 curl https://rclone.org/install.sh | sudo bash
