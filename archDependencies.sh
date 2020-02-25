@@ -46,7 +46,8 @@ packer -S --noconfirm --noedit \
   yarn \
   docker \
   weechat \
-  ranger
+  ranger \
+  github-cli
 
 
 # install docker/docker-compose
