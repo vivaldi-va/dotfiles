@@ -31,10 +31,10 @@
 URxvt*scrollBar: false
 
 ;URxvt*font:	xft:xos4 Hack:style=regular:size=10:antialias=true
-URxvt*font:	xft:Fira Code:style=Regular:size=12:antialias=true:autohint=true;
+URxvt*font:	xft:Iosevka:style=Regular:size=12:antialias=true
 URxvt*iso14755: false
 URxvt*iso14755_52: false
-URxvt.letterSpace: -1
+;URxvt.letterSpace: -1
 
-#st.font: Fira Code:style=Regular:pixelsize=14:antialias=true:autohint=true;
-#st.cursorshape: 2
+;st.font: Fira Code:style=Regular:pixelsize=14:antialias=true:autohint=true;
+;st.cursorshape: 2
