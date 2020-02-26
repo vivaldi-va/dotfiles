@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# nvim
-#sudo add-apt-repository ppa:neovim-ppa/stable
-
-# weechat
+# weechat sources list
 sudo sh -c 'echo "deb https://weechat.org/ubuntu $(lsb_release -cs) main" >> /etc/apt/sources.list.d/weechat.list'
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
 
@@ -21,7 +18,7 @@ sudo apt-get update > /dev/null && \
 # neovim
 curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim.appimage > /tmp/nvim.appimage && \
   sudo mv /tmp/nvim.appimage /usr/local/bin/nvim && \
-  chmod +x /usr/local/bin/nvim
+  chmod u+x /usr/local/bin/nvim
 
 # FD find
 wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb -O ~/fd.deb && \
