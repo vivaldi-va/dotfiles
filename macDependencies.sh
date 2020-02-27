@@ -17,7 +17,8 @@ brew install \
   the_silver_searcher \
   fd \
   tmux \
-  highlight
+  highlight \
+  fswatch
 
 # install oh-my-zsh
 rm -rf ~/.oh-my-zsh
@@ -26,6 +27,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo '#######################'
 echo 'installing development and util applications'
 echo '#######################'
+# install neovim
+brew tap neovim/neovim && brew install neovim
+
 brew install \
   neofetch \
   htop \

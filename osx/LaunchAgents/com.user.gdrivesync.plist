@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+   <key>Label</key>
+   <string>com.user.gdrivesync</string>
+   <key>EnvironmentVariables</key>
+   <dict>
+     <key>PATH</key>
+     <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:</string>
+   </dict>
+   <key>ProgramArguments</key>
+   <array>
+     <string>/usr/local/bin/osxWatchDirectory.sh</string>
+     <string>/Users/zaccary/Drive</string>
+     <string>/usr/local/bin/gdrivebackup.sh</string>
+   </array>
+   <key>RunAtLoad</key>
+   <true/>
+   <key>StandardOutPath</key>
+   <string>$HOME/sync.log</string>
+   <key>StandardErrorPath</key>
+   <string>$HOME/sync.log</string>
+</dict>
+</plist>
+
+<!--vim:ft=xml-->

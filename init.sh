@@ -52,9 +52,9 @@ ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 [ "$(lsb_release -si)" = "Arch" ] && ln -sf $(pwd)/.tmux.conf.arch ~/.tmux.conf.local
 
 # set up dropbox-stored note taking
-if [ -d "$HOME/Dropbox" ]; then
-  touch $HOME/Dropbox/note.txt
-  ln -sf $HOME/Dropbox/note.txt $HOME/note.txt
+if [ -d "$HOME/Drive" ]; then
+  touch $HOME/Drive/note.txt
+  ln -sf $HOME/Drive/note.txt $HOME/note.txt
 fi
 
 # copy scripts
