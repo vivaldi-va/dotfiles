@@ -20,6 +20,9 @@ curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   sudo mv /tmp/nvim.appimage /usr/local/bin/nvim && \
   chmod u+x /usr/local/bin/nvim
 
+# python support
+pip3 install pynvim
+
 # FD find
 wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb -O ~/fd.deb && \
   sudo dpkg -i ~/fd.deb && \
