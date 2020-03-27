@@ -163,6 +163,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/j
 
 # export docker host to reference native
 # windows docker daemon running on host machine
-if $(iswsl); then
+if [[ $(uname -a) =~ Microsoft ]]; then
   export DOCKER_HOST=tcp://localhost:2375
 fi
