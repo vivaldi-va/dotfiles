@@ -81,4 +81,3 @@ packer -S --noconfirm --noedit \
   youtube-dl \
   mupdf jbig2dec \
   surf
-

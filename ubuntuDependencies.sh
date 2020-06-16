@@ -51,3 +51,14 @@ wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/q
 sudo add-apt-repository ppa:sile-typesetter/sile
 sudo apt update
 sudo apt install sile
+
+# gh cli
+LATEST_GH=$(curl -sL api.github.com/repos/cli/cli/releases/latest | jq .name | sed 's/v//' | sed 's/"//g')
+echo $LATEST_GH
+GH_CLI_URL=https://github.com/cli/cli/releases/download/v${LATEST_GH}/gh_${LATEST_GH}_linux_amd64.deb
+echo $GH_CLI_URL
+
+curl -sL ${GH_CLI_URL} && \
+  sudo dpkg -i gh_${LATEST_GH}_linux_amd64.deb && \
+  rm gh_${LATEST_GH}_linux_amd64.deb
+
