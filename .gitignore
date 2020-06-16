@@ -5,3 +5,6 @@ credentials.conf
 # irssi config autosave
 config.autosave
 *.log
+.yarnrc
+ctags
+dump.rdb
