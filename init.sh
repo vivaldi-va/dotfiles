@@ -69,6 +69,9 @@ fi
 
 # set up zsh
 
+# change default shell to zsh
+chsh -s /usr/bin/zsh
+
 ## restore zshrc
 [ -f ~/.zshrc.pre-oh-my-zsh ] && mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 touch ~/.zs
@@ -88,7 +91,7 @@ mkdir -p ~/.config/vim/undo_files
 
 # install node js and utils
 if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
 fi
 
 echo "Init complete"
