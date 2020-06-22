@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # weechat sources list
-sudo sh -c 'echo "deb https://weechat.org/ubuntu $(lsb_release -cs) main" >> /etc/apt/sources.list.d/weechat.list'
+sudo sh -c 'echo "deb https://weechat.org/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/weechat.list'
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
 
 sudo apt-get update > /dev/null && \
-  sudo apt-get install -y \
+  sudo apt-get install -y -qq \
     zsh \
     vim \
     silversearcher-ag \
@@ -39,17 +39,19 @@ cd ctags
 make
 sudo make install
 
-# Qogir theme
-sudo apt install -qq gtk2-engines-murrine gtk2-engines-pixbuf
-wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/qogir.tar.gz && \
-  tar xvzf ~/qogir.tar.gz && \
-  cd ~/qogir && \
-  ./install.sh -i && \
-  rm -rf ~/qogir ~/qogir.tar.gz
+if [[ $DISPLAY ]]; then
+  # Qogir theme
+  sudo apt-get install -y -qq gtk2-engines-murrine gtk2-engines-pixbuf
+  wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/qogir.tar.gz && \
+    tar xvzf ~/qogir.tar.gz && \
+    cd ~/qogir && \
+    ./install.sh -i && \
+    rm -rf ~/qogir ~/qogir.tar.gz
+fi
 
 # SILE typesetter
 sudo add-apt-repository ppa:sile-typesetter/sile
-sudo apt update
-sudo apt install sile
+sudo apt-get update > /dev/null
+sudo apt-get install -y -qq sile
 
 ./ubuntudeps/ghcli.sh
