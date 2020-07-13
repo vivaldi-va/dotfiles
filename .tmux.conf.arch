@@ -1,3 +1,5 @@
+set -g @plugin 'tmux-plugins/tmux-open'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 source-file ~/.cache/wal/colors.tmux.conf
 
 #; vim:ft=tmux

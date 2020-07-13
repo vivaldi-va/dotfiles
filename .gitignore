@@ -8,3 +8,4 @@ config.autosave
 .yarnrc
 ctags
 dump.rdb
+.cache
