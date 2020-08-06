@@ -1,5 +1,5 @@
 # Dotfiles
-Dot files for my Arch Linux + i3wm setup used on my Lenovo T490s.
+Dot files for my personal machines. Includes Arch/i3, Ubuntu/xfce and mac, managed via a global init file.
 
 # Installation
 
@@ -30,41 +30,4 @@ Dot files for my Arch Linux + i3wm setup used on my Lenovo T490s.
 ![Screenshot](https://i.imgur.com/BREgiaX.jpg)
 ![Screenshot](https://i.imgur.com/GFbw078.jpg)
 
-## Primary packages
 
-- rofi
-- zsh
-- urxvt
-- i3
-- dunst
-- neovim
-- fd
-- polybar
-- chromium
-- betterlockscreen
-- libinput
-  - libinput-gestures
-- pywal
-- neofetch
-
-## Secondary packages/dependencies
-
-- w3m
-- imgur-screenshot
-- maim
-- KeeWeb
-- libsecret
-- redshift
-- spotify
-- compton
-- dropbox
-- pulseaudio / -alsa
-- NetworkManager
-  - nm-applet
-- pamixer
-- gotop
-- plug
-- Fonts:
-  - Hack
-  - Fira code
-  - FontAwesome
