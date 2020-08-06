@@ -22,6 +22,10 @@ function pn() {
     echo "pushed ${branch} to origin"
 }
 
+function puf() {
+  git pull -r && git fetch --prune
+}
+
 
 function cmgraph() {
   git log --author="Zaccary Price" --author="vivaldi-va" --format="%ad" --date="format:%H"|awk '{n=$1+0;if(H[n]++>max)max=H[n]}END{for(i=0;i<24;i++){printf"%02d -%5d ",i,H[i];for(n=0;n<H[i]/max*50;n++){printf "*"}print""}}'
