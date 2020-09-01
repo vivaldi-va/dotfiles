@@ -25,3 +25,5 @@
 	required = true
 [diff "strongbox"]
 	textconv = strongbox -diff
+[pull]
+	ff = only
