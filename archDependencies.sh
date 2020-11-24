@@ -72,6 +72,7 @@ packer -S --noconfirm --noedit \
   google-chrome-dev \
   mailspring \
   libcurl-gnutls spotify \
+  spicetify-cli \
   slack-desktop \
   dropbox \
   vlc \

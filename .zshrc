@@ -8,6 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/go/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 
+export SPICETIFY_INSTALL="$HOME/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
 if [[ $(uname -s) =~ "Darwin".* ]]; then
   # homebrew paths
   export PATH=/usr/local/opt/ruby/bin:$PATH

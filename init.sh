@@ -37,6 +37,14 @@ if [[ $OS == 'Arch Linux' ]]; then
     git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
   [ ! -d "$HOME/.config/scripts/rofi-power-menu" ] && \
     git clone https://github.com/vivaldi-va/rofi-power-menu.git ~/.config/scripts/rofi-power-menu
+
+  sudo chmod a+wr /opt/spotify
+  sudo chmod a+wr /opt/spotify/Apps -R
+
+  spicetify && \
+  spicetify config current_theme gruvbox && \
+  spicetify backup apply enable-devtool
+
 fi
 
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
