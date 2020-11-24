@@ -26,17 +26,17 @@ $copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
 
 $copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
 
-if [[ $OS == 'Arch Linux' ]]; then
-  $copy -rf --symbolic-link $(pwd)/.themes/* ~/.themes/
-fi
-
 # copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then
   ln -sf $(pwd)/.xinitrc ~/.xinitrc
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
-  [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
-  [ ! -d "$HOME/.config/scripts/rofi-power-menu" ] && git clone https://github.com/vivaldi-va/rofi-power-menu.git ~/.config/scripts/rofi-power-menu
+  [ ! -d "$HOME/.config/rofi/themes/gruvbox" ] && \
+    git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
+  [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && \
+    git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
+  [ ! -d "$HOME/.config/scripts/rofi-power-menu" ] && \
+    git clone https://github.com/vivaldi-va/rofi-power-menu.git ~/.config/scripts/rofi-power-menu
 fi
 
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
