@@ -216,7 +216,8 @@ client.background       $bg
 set $term --no-startup-id urxvt
 
 # Keybindings #
-bindsym $mod+Shift+d              exec wal -i "$HOME/Pictures/wallpapers/"
+#bindsym $mod+Shift+d              exec wal -i "$HOME/Pictures/wallpapers/"
+bindsym $mod+Shift+d              exec feh --randomize --bg-fill "$HOME/Pictures/wallpapers/"
 bindsym $mod+x                    exec betterlockscreen -l
 bindsym $mod+Shift+s              exec betterlockscreen -s
 bindsym $mod+F2                   restart
