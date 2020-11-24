@@ -81,4 +81,5 @@ packer -S --noconfirm --noedit \
   mpv \
   youtube-dl \
   mupdf jbig2dec \
-  surf
+  surf \
+  zathura zathura-pdf-poppler
