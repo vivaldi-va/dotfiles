@@ -70,7 +70,6 @@ packer -S --noconfirm --noedit \
   chromium-dev \
   google-chrome \
   google-chrome-dev \
-  mailspring \
   libcurl-gnutls spotify \
   spicetify-cli \
   slack-desktop \
