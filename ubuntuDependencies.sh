@@ -40,13 +40,7 @@ make
 sudo make install
 
 if [[ $DISPLAY ]]; then
-  # Qogir theme
-  sudo apt-get install -y -qq gtk2-engines-murrine gtk2-engines-pixbuf
-  wget https://github.com/vinceliuice/Qogir-theme/archive/2019-08-31.tar.gz -O ~/qogir.tar.gz && \
-    tar xvzf ~/qogir.tar.gz && \
-    cd ~/qogir && \
-    ./install.sh -i && \
-    rm -rf ~/qogir ~/qogir.tar.gz
+  ./ubuntudeps/qogir-theme.sh
 fi
 
 # SILE typesetter
@@ -55,3 +49,4 @@ sudo apt-get update > /dev/null
 sudo apt-get install -y -qq sile
 
 ./ubuntudeps/ghcli.sh
+./ubuntudeps/glow.sh
