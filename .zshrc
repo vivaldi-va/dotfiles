@@ -159,6 +159,8 @@ alias whodoneit='git ls-tree --name-only -z -r HEAD -- $1 | xargs -0 -n1 git bla
 alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
 alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
+alias jsontidy="xclip -out | jq '.' | xclip"
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
