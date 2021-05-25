@@ -53,6 +53,7 @@ echo '#######################'
 echo 'installing fonts'
 echo '#######################'
 packer -S --noconfirm --noedit \
+  ttf-symbola \
   ttf-iosevka \
   ttf-fira-code
 
