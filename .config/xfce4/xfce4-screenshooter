@@ -1,7 +1,7 @@
 delay=0
 region=3
 show_mouse=1
-screenshot_dir=file:///home/vivaldi/Pictures
+screenshot_dir=file:/home/vivaldi/Pictures
 app=feh
 last_user=
 action=2
