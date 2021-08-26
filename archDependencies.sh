@@ -54,7 +54,7 @@ echo 'installing fonts'
 echo '#######################'
 packer -S --noconfirm --noedit \
   ttf-symbola \
-  ttf-iosevka \
+  ttc-iosevka \
   ttf-fira-code
 
 # install docker/docker-compose
