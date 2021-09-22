@@ -24,6 +24,9 @@ fi
 # symlink .config directory and contents to $HOME/.config
 $copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
 
+# symlink .local directory and contents to $HOME/.local
+$copy -rf --symbolic-link $(pwd)/.local/* ~/.local/
+
 $copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
 
 # copy x files for arch theme etc.

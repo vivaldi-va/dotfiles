@@ -1,0 +1,12 @@
+[Desktop Entry]
+DefaultProfile=custom.profile
+
+[KonsoleWindow]
+RemoveWindowTitleBarAndFrame=true
+SaveGeometryOnExit=false
+ShowMenuBarByDefault=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAQ4AAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
