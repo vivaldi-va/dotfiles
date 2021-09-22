@@ -5,6 +5,7 @@ DefaultProfile=custom.profile
 RemoveWindowTitleBarAndFrame=true
 SaveGeometryOnExit=false
 ShowMenuBarByDefault=false
+ShowWindowTitleOnTitleBar=true
 
 [MainWindow]
 MenuBar=Disabled
