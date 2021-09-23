@@ -13,7 +13,8 @@ sudo apt-get update > /dev/null && \
     weechat \
     ranger \
     mpv \
-    inotify-tools
+    inotify-tools \
+    konsole
 
 # neovim
 curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim.appimage > /tmp/nvim.appimage && \
