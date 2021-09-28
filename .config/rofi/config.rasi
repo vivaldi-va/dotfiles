@@ -1,0 +1,18 @@
+configuration {
+	modi: "combi";
+  font: "Fira Code 14";
+	combi-modi: "window,run";
+  fixed-num-lines: true;
+	eh: 2;
+	theme: "gruvbox-dark";
+	kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space,Super_L+d";
+	kb-row-select: "";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
