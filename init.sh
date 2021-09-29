@@ -35,7 +35,7 @@ if [[ $OS == 'Arch Linux' ]]; then
   ln -sf $(pwd)/.xprofile ~/.xprofile
   ln -sf $(pwd)/.Xresources ~/.Xresources
   [ ! -d "$HOME/.config/rofi/themes/gruvbox" ] && \
-    git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
+    git clone https://github.com/vivaldi-va/gruvbox-rofi ~/.config/rofi/themes/gruvbox
   [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && \
     git clone https://github.com/zbaylin/rofi-wifi-menu.git ~/.config/scripts/rofi-wifi-menu
   [ ! -d "$HOME/.config/scripts/rofi-power-menu" ] && \
