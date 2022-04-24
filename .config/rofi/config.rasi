@@ -3,6 +3,8 @@ configuration {
   font: "Fira Code 14";
 	combi-modi: "window,run";
   fixed-num-lines: true;
+  max-history-size: 5;
+  lines: 5;
 	eh: 2;
 	theme: "gruvbox-dark";
 	kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space,Super_L+d";

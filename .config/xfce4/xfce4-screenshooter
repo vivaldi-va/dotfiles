@@ -5,4 +5,7 @@ screenshot_dir=file:/home/vivaldi/Pictures
 app=feh
 last_user=
 action=2
+last_extension=png
+enable_imgur_upload=true
+show_border=1
 
