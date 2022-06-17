@@ -1,7 +1,25 @@
+#function calc() {
+#  if [ $# -lt 1 ]; then
+#    echo "usage: $0 <expression>" >&2
+#  else
+#    echo $1 | bc
+#  fi
+#}
+
+# Simple calculator
 function calc() {
-  if [ $# -lt 1 ]; then
-    echo "usage: $0 <expression>" >&2
-  else
-    echo $1 | bc
+  local result=""
+  result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
+  #                       └─ default (when `--mathlib` is used) is 20
+  #
+  if [[ "$result" == *.* ]]; then
+    # improve the output for decimal numbers
+    printf "$result" |
+      sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
+      -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
+      -e 's/0*$//;s/\.$//'   # remove trailing zeros
+        else
+          printf "$result"
   fi
+  printf "\n"
 }
