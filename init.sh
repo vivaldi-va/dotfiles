@@ -105,4 +105,7 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
 fi
 
+# copy bin directory
+$copy -rf --symbolic-link $(pwd)/bin/* /usr/local/bin
+
 echo "Init complete"

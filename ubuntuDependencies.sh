@@ -6,7 +6,8 @@ sudo apt-get update > /dev/null && \
     vim \
     silversearcher-ag \
     tmux \
-    ranger
+    ranger \
+    pandoc
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
