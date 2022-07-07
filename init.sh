@@ -106,6 +106,6 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 
 # copy bin directory
-$copy -rf --symbolic-link $(pwd)/bin/* /usr/local/bin
+sudo $copy -rf --symbolic-link $(pwd)/bin/* /usr/local/bin
 
 echo "Init complete"

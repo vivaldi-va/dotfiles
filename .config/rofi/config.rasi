@@ -6,7 +6,6 @@ configuration {
   max-history-size: 5;
   lines: 5;
 	eh: 2;
-	theme: "gruvbox-dark";
 	kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space,Super_L+d";
 	kb-row-select: "";
   timeout {
@@ -18,3 +17,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@theme "gruvbox-dark"
