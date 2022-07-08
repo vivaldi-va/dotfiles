@@ -25,6 +25,7 @@ fi
 if [[ $DISPLAY ]]; then
   ./ubuntudeps/rofi.sh
   ./ubuntudeps/glow.sh
+  ./ubuntudeps/chrome.sh
 
   sudo apt-get update > /dev/null && \
     sudo apt-get install -y -qq \
