@@ -16,7 +16,7 @@ curl -sL \
 cd /tmp/theme
 unzip -o ${FILE_NAME}
 cd Qogir-theme-master
-./install.sh -i -c dark -t standard
+./install.sh -c dark -t default
 
 # Icons
 FILE_NAME=qogir-icon-theme.zip
