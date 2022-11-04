@@ -160,14 +160,16 @@ alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
 alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
 alias jsontidy="xclip -out | jq '.' | xclip"
+alias tasks='git grep -EI "^(\/\/|\*)\s*(TODO|FIXME)"'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # export docker host to reference native
 # windows docker daemon running on host machine
 if [[ $(uname -a) =~ Microsoft ]]; then
   export DOCKER_HOST=tcp://localhost:2375
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
