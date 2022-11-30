@@ -15,12 +15,17 @@ DATE_FORMATTED=$(date "+%D %T")
 
 BASE="$HOME"/Documents/brain
 WEBROOT="$HOME"/public_html/brain
+CONFIG_ROOT="$HOME/.config/journal"
 
 mkdir -p "$BASE"
 mkdir -p "$WEBROOT"
+mkdir -p "$CONFIG_ROOT"
 
 DAILY="$BASE"/"$DATE".md
 DAILY_HTML="$WEBROOT"/"$DATE".html
+STYLES="$HOME/.config/journal/style.css"
+
+[ ! -f "$STYLES" ] && touch $STYLES
 
 has?() {
     command -v "$@" &> /dev/null
@@ -39,13 +44,14 @@ if [ ! -f "$DAILY" ]; then
 fi
 
 vim -c 'Goyo' '+normal Go' "$DAILY"
-has? pandoc && pandoc -s -f markdown -t html5 -o "$DAILY_HTML" "$DAILY" || :
+has? pandoc && pandoc -s -f markdown -c "$STYLES" -t html5 -o "$DAILY_HTML" "$DAILY" || :
 
-# generate index
+# generate index. Executes after (neo)vim session ends
 tree \
   -H '.' \
   -L 1 \
   --noreport \
   --charset utf-8 \
   ${WEBROOT} | \
+  # remove tree copyright text (delete <hr> elem + 7 following lines)
 sed -e '/<hr>/,+7d' > ${WEBROOT}/index.html

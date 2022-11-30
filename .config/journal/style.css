@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol, ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* variables */
+
+
+
+html {
+  font-size: 10px;
+}
+
+body {
+  padding: 0 1em;
+  background-color: #222;
+  color: #eee;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+}
+
+:is(h1,h2,h3,h4,h5,h6) {
+  margin: 0.5em 0;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h1:first-of-type {
+  margin: 1rem 0;
+  border-bottom: 2px solid #999;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+ul {
+  margin-left: 2em;
+}
+
+ul > li {
+  list-style: disc;
+}
+
+blockquote {
+  border-left: 3px solid currentcolor;
+  margin: 0.5em 0 0.5em 0.5em;
+  padding-left: 0.5em;
+}
+
+pre {
+  margin: 1em 0.5em;
+  padding: 1em;
+  border: 1px solid currentcolor;
+  border-radius: 3px;
+}
+
+code {
+  font-family: monospace;
+}
