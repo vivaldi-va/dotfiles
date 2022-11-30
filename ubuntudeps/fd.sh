@@ -11,7 +11,6 @@ curl -sL ${URL} -o /tmp/fd.deb && \
   rm /tmp/fd.deb
 
 # FZF
-git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/fzf \
-  && /tmp/fzf/install \
-  && rm -rf /tmp/fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+  && ~/.fzf/install
 
