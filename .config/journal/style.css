@@ -98,3 +98,7 @@ pre {
 code {
   font-family: monospace;
 }
+
+del {
+  text-decoration: line-through;
+}
