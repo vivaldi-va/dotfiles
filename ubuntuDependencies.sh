@@ -32,5 +32,6 @@ if [[ $DISPLAY ]]; then
     mpv \
     konsole \
     inotify-tools \
-    gphoto2
+    gphoto2 \
+    gammastep # redshift alternative
 fi
