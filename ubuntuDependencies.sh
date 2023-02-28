@@ -2,6 +2,8 @@
 
 sudo apt-get update > /dev/null && \
   sudo apt-get install -y -qq \
+    curl \
+    git \
     zsh \
     vim \
     silversearcher-ag \

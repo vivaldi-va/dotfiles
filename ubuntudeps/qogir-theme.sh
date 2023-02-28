@@ -31,3 +31,7 @@ cd Qogir-icon-theme-master
 ./install.sh
 
 rm -rf /tmp/theme
+
+# apply
+xfconf-query -c xsettings -p /Net/ThemeName -s "Qogir-Dark"
+xfconf-query -c xfwm4 -p /general/theme -s Qogir-Dark
