@@ -31,3 +31,6 @@ mkdir build && cd build
 cd ../..
 rm ${FILE_NAME}
 rm -rf rofi-${LATEST_TAG}
+
+# add to app shortcuts:
+#   rofi -combi-modi window,run -show combi -modi combi -lines 5
