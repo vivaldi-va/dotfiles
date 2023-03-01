@@ -38,5 +38,6 @@ if [[ $DISPLAY ]]; then
     inotify-tools \
     gphoto2 \
     font-manager \
+    vim-gtk3 \
     gammastep # redshift alternative
 fi
