@@ -28,6 +28,8 @@ if [[ $DISPLAY ]]; then
   ./ubuntudeps/rofi.sh
   ./ubuntudeps/glow.sh
   ./ubuntudeps/chrome.sh
+  ./ubuntudeps/iosevka.sh
+  ./ubuntudeps/spotify.sh
 
   sudo apt-get update > /dev/null && \
     sudo apt-get install -y -qq \
@@ -35,5 +37,6 @@ if [[ $DISPLAY ]]; then
     konsole \
     inotify-tools \
     gphoto2 \
+    font-manager \
     gammastep # redshift alternative
 fi
