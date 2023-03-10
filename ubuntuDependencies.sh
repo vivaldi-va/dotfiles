@@ -9,7 +9,10 @@ sudo apt-get update > /dev/null && \
     silversearcher-ag \
     tmux \
     ranger \
-    pandoc
+    pandoc \
+    autoconf \
+    autotools-dev \
+    build-essential
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh

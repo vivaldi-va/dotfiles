@@ -12,5 +12,7 @@ Section "InputClass"
     Option "PalmDetect" "1"
     Option "PalmMinWidth" "4"
     Option "PalmMinZ" "75"
+    Option "VertScrollDelta" "-71"
+    Option "HorizScrollDelta" "-71"
 EndSection
 EOF'
