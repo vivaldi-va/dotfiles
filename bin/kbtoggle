@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -ex
+
+kbid=8
+
+if [ ! -f ~/.keyboard-status ]; then
+  touch ~/.keyboard-status
+fi
+
+if [[ $(<~/.keyboard-status) == "enabled" ]]; then
+  xinput --disable $kbid
+  echo "disabled" > ~/.keyboard-status
+  notify-send 'Keyboard disabled' --icon=dialog-information
+else
+  xinput --enable $kbid
+  echo "enabled" > ~/.keyboard-status
+  notify-send 'Keyboard enabled' --icon=dialog-information
+fi
