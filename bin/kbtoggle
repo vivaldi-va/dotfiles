@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -ex
+set -e
 
-kbid=8
+# xinput list
+kbid=12
 
 if [ ! -f ~/.keyboard-status ]; then
   touch ~/.keyboard-status
