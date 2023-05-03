@@ -102,7 +102,7 @@ mkdir -p ~/.config/vim/undo_files
 
 # install node js and utils
 if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
 fi
 
 # copy bin directory
