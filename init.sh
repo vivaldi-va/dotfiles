@@ -72,10 +72,10 @@ fi
 sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 
 # Crontabs (only non-mac OS)
-if [[ $OS != 'Darwin' ]];then
-  sudo touch /var/log/cron.log
-  sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
-fi
+#if [[ $OS != 'Darwin' ]];then
+#  sudo touch /var/log/cron.log
+#  sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
+#fi
 
 
 # set up zsh
