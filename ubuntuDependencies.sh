@@ -12,7 +12,8 @@ sudo apt-get update > /dev/null && \
     pandoc \
     autoconf \
     autotools-dev \
-    build-essential
+    build-essential \
+    fuse libfuse2
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
