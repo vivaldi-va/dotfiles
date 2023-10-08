@@ -129,6 +129,7 @@ export NVM_DIR="$HOME/.nvm"
 # unalias  gcp to allow use of gnu cp
 unalias -m 'gcp'
 alias vim='nvim'
+alias mkctl='microk8s kubectl'
 
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z0-9]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"

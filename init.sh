@@ -89,8 +89,11 @@ touch ~/.zs
 touch ~/.zsh-update
 touch ~/.zsh-history
 
+# install omzsh
+[ ! -d "$HOME/.oh-my-zsh" ] sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ## copy custom omzsh scripts if omzsh exists
-[ ! -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh
+#[ ! -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh
 $copy -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
 ln -sf $(pwd)/.zshrc ~/.zshrc
 

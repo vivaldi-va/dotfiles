@@ -2,6 +2,7 @@
 
 sudo apt-get update > /dev/null && \
   sudo apt-get install -y -qq \
+    jq \
     curl \
     git \
     zsh \
@@ -19,8 +20,8 @@ sudo apt-get update > /dev/null && \
 ./ubuntudeps/fd.sh
 ./ubuntudeps/ctag.sh
 ./ubuntudeps/ghcli.sh
-./ubuntudeps/sile.sh
-./ubuntudeps/weechat.sh
+#./ubuntudeps/sile.sh
+#./ubuntudeps/weechat.sh
 
 # install xfce theme
 if [[ $DISPLAY ]]; then
