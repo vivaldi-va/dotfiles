@@ -134,9 +134,11 @@ alias mkctl='microk8s kubectl'
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z0-9]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
 alias cm='echo "$(ticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -vt ~/.gitcommittemplate'
+alias cmn='cm --noValidate'
 
 alias gf='git fetch --prune'
 alias sl='git shortlog --no-merges --since=\"$(date '+%Y')-$(date '+%m')-01\"'
+alias gcd='git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"'
 alias dc='docker-compose'
 alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
@@ -145,6 +147,7 @@ alias ta='tmux attach-session -t'
 alias jqr="jq -R 'fromjson? | select(type == \"object\")'"
 
 alias yi='yarn install --frozen-lockfile'
+alias nvmi="nvm install --latest-npm"
 
 alias xclip='xclip -selection clipboard'
 
