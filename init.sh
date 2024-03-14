@@ -83,14 +83,16 @@ sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 # change default shell to zsh
 chsh -s /usr/bin/zsh
 
+# install omzsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 ## restore zshrc
 [ -f ~/.zshrc.pre-oh-my-zsh ] && mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 touch ~/.zs
 touch ~/.zsh-update
 touch ~/.zsh-history
-
-# install omzsh
-[ ! -d "$HOME/.oh-my-zsh" ] sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ## copy custom omzsh scripts if omzsh exists
 #[ ! -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh

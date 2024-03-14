@@ -30,7 +30,7 @@ fi
 
 # install desktop-only stuff
 if [[ $DISPLAY ]]; then
-  ./ubuntudeps/rofi.sh
+  #./ubuntudeps/rofi.sh
   ./ubuntudeps/glow.sh
   ./ubuntudeps/chrome.sh
   ./ubuntudeps/iosevka.sh
@@ -44,5 +44,6 @@ if [[ $DISPLAY ]]; then
     gphoto2 \
     font-manager \
     vim-gtk3 \
+    rofi \
     gammastep # redshift alternative
 fi

@@ -7,4 +7,5 @@ curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 
 # python support
 echo Installing NeoVIM Python support
-pip3 install pynvim
+# pip3 install pynvim
+sudo apt install python3-pynvim
