@@ -45,5 +45,9 @@ if [[ $DISPLAY ]]; then
     font-manager \
     vim-gtk3 \
     rofi \
-    gammastep # redshift alternative
+    # redshift alternative
+    gammastep \
+    # make sure bt headphones work
+    # https://askubuntu.com/a/471333
+    pulseaudio-module-bluetooth
 fi
