@@ -130,6 +130,7 @@ export NVM_DIR="$HOME/.nvm"
 unalias -m 'gcp'
 alias vim='nvim'
 alias mkctl='microk8s kubectl'
+alias mhelm='microk8s helm'
 
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z0-9]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
