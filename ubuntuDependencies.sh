@@ -17,7 +17,8 @@ sudo apt-get update > /dev/null && \
     fuse libfuse2 \
     rdate \
     # alternate git diff
-    git-delta
+    git-delta \
+    age
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
