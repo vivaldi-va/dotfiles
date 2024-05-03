@@ -14,7 +14,8 @@ sudo apt-get update > /dev/null && \
     autoconf \
     autotools-dev \
     build-essential \
-    fuse libfuse2
+    fuse libfuse2 \
+    rdate
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
