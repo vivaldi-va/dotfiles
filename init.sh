@@ -76,6 +76,10 @@ sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 #  sudo touch /var/log/cron.log
 #  sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
 #fi
+if [[ $OS != 'Darwin' ]];then
+  sudo touch /var/log/cron.log
+  sudo $copy -rf --symbolic-link $(pwd)/cron/daily/* /etc/cron.daily/
+fi
 
 
 # set up zsh
