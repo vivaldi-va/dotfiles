@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+wallpaperdir="/home/$(whoami)/Pictures/Wallpapers"
+datefile="/home/$(whoami)/.wallsw"
+thisday=$( date +%j )
+wallfiles=($wallpaperdir/**/*)
+#randompic=`printf "%s\n" "${wallfiles[RANDOM % ${#wallfiles[@]}]}"`
+randompic=`find $wallpaperdir | sort -R | tail -1`
+PID=$(pgrep xfce4-session)
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)
+
+MONITOR=${1:-0}
+PROPERTY="/backdrop/screen0/monitoreDP-1/workspace0"
+
+if [ -f "$datefile" ]
+then
+    lastday=$( cat "$datefile" )
+    if [ "$lastday" != "$thisday" ]
+    then
+        date +%j > "$datefile"
+        xfconf-query -c xfce4-desktop -p $PROPERTY/last-image --set $randompic
+    fi
+else
+    date +%j > "$datefile"
+    xfconf-query -c xfce4-desktop -p $PROPERTY/last-image --set $randompic
+fi
