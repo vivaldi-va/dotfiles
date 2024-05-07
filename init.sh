@@ -28,6 +28,7 @@ $copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
 $copy -rf --symbolic-link $(pwd)/.local/* ~/.local/
 
 $copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
+$copy -rf --symbolic-link $(pwd)/bin/* ~/.bin/
 
 # copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then

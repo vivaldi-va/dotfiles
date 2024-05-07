@@ -1,0 +1,20 @@
+#!/bin/sh
+
+primary=#d79921
+secondary=#A54242
+
+connected_interface=$(nmcli connection show wg0 2> /dev/null | grep ipv4.addresses | awk '{print $2}' | sed -E 's/\/24//g' 2> /dev/null)
+
+print() {
+    if [ ! -z "$connected_interface" ]; then
+        current_ts=$(date +%s)
+        connection_ts=$(nmcli connection show wg0 | grep timestamp | awk '{print $2}')
+        time_sec=$(($current_ts - $connection_ts))
+        time_min=$(($time_sec / 60))
+        echo %{F"$primary"}%{F-} "$connected_interface %{F"#707880"}:%{F-} $time_min mins"
+    else
+        echo %{F"$secondary"}%{F-}
+    fi
+}
+
+print
