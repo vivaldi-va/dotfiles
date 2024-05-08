@@ -11,10 +11,12 @@ floating_modifier $super
 #autostart
 #exec --no-startup-id cat ~/.wallpaper | xargs hsetroot -center
 exec --no-startup-id feh -r --randomize --bg-fill "$HOME/Pictures/Wallpapers"
+exec --no-startup-id betterlockscreen -u "$HOME/Pictures/Wallpapers"
 exec --no-startup-id source ~/.fehbg
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l -w dim -- --no-fork
 
 # start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
@@ -119,15 +121,15 @@ bindsym $super+r mode "resize"
 # panel
 #bar {
 #    colors {
-#        background #2f343f
-#        statusline #2f343f
+#        background #282828
+#        statusline #282828
 #        separator #4b5262
 #
 #        # colour of border, background, and text
-#        focused_workspace       #2f343f #bf616a #d8dee8
-#        active_workspace        #2f343f #2f343f #d8dee8
-#        inactive_workspace      #2f343f #2f343f #d8dee8
-#        urgent_workspace        #2f343f #ebcb8b #2f343f
+#        focused_workspace       #282828 #af3a03 #d5c4a1
+#        active_workspace        #282828 #282828 #d5c4a1
+#        inactive_workspace      #282828 #282828 #d5c4a1
+#        urgent_workspace        #282828 #ebcb8b #282828
 #    }
 #    status_command i3status
 #}
@@ -145,9 +147,9 @@ for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
+client.focused              #af3a03 #282828 #d5c4a1 #af3a03 #d5c4a1
+client.focused_inactive     #282828 #282828 #d5c4a1 #282828 #282828
+client.unfocused            #282828 #282828 #d5c4a1 #282828 #282828
+client.urgent               #282828 #282828 #d5c4a1 #282828 #282828
+client.placeholder          #282828 #282828 #d5c4a1 #282828 #282828
+client.background           #282828

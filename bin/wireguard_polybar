@@ -1,8 +1,5 @@
 #!/bin/sh
 
-primary=#d79921
-secondary=#A54242
-
 connected_interface=$(nmcli connection show wg0 2> /dev/null | grep ipv4.addresses | awk '{print $2}' | sed -E 's/\/24//g' 2> /dev/null)
 
 print() {
@@ -11,10 +8,19 @@ print() {
         connection_ts=$(nmcli connection show wg0 | grep timestamp | awk '{print $2}')
         time_sec=$(($current_ts - $connection_ts))
         time_min=$(($time_sec / 60))
-        echo %{F"$primary"}%{F-} "$connected_interface %{F"#707880"}:%{F-} $time_min mins"
+
+        if [ $time_min > 3600 ]; then
+          time_remain=$((time_min%60))
+          time="$((time_min / 60)) hour $time_remain min"
+        else
+          time="$((time_min | cut -f1 -d".")) min"
+        fi
+        echo "$connected_interface %{F"#707880"}:%{F-} $time"
     else
         echo %{F"$secondary"}%{F-}
     fi
 }
 
 print
+
+# vim:ft=sh
