@@ -9,9 +9,9 @@ print() {
         time_sec=$(($current_ts - $connection_ts))
         time_min=$(($time_sec / 60))
 
-        if [[ $time_min -gt 3600 ]]; then
+        if [[ $time_min -gt 60 ]]; then
           time_remain=$((time_min%60))
-          time="$((time_min / 60)) hour $time_remain min"
+          time="$((time_min / 60))h ${time_remain}m"
         else
           time="$(echo $time_min | cut -f1 -d".") min"
         fi
