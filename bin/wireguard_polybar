@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 connected_interface=$(nmcli connection show wg0 2> /dev/null | grep ipv4.addresses | awk '{print $2}' | sed -E 's/\/24//g' 2> /dev/null)
 
@@ -9,11 +9,11 @@ print() {
         time_sec=$(($current_ts - $connection_ts))
         time_min=$(($time_sec / 60))
 
-        if [ $time_min > 3600 ]; then
+        if [[ $time_min -gt 3600 ]]; then
           time_remain=$((time_min%60))
           time="$((time_min / 60)) hour $time_remain min"
         else
-          time="$((time_min | cut -f1 -d".")) min"
+          time="$(echo $time_min | cut -f1 -d".") min"
         fi
         echo "$connected_interface %{F"#707880"}:%{F-} $time"
     else
