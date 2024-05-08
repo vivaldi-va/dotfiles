@@ -53,22 +53,22 @@ bindsym $super+c kill
 bindsym $alt+F4 kill
 
 # change focus
-bindsym $super+Left focus left
-bindsym $super+Down focus down
-bindsym $super+Up focus up
-bindsym $super+Right focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
 
 # move focused window
-bindsym $super+Shift+Left move left
-bindsym $super+Shift+Down move down
-bindsym $super+Shift+Up move up
-bindsym $super+Shift+Right move right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 
 # split in horizontal orientation
-bindsym $super+h split h
+bindsym $super+Control+h split h
 
 # split in vertical orientation
-bindsym $super+v split v
+bindsym $super+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $super+f fullscreen toggle
@@ -110,32 +110,19 @@ bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
         bindsym Return mode "default"
 }
 bindsym $super+r mode "resize"
 
-# panel
-#bar {
-#    colors {
-#        background #282828
-#        statusline #282828
-#        separator #4b5262
-#
-#        # colour of border, background, and text
-#        focused_workspace       #282828 #af3a03 #d5c4a1
-#        active_workspace        #282828 #282828 #d5c4a1
-#        inactive_workspace      #282828 #282828 #d5c4a1
-#        urgent_workspace        #282828 #ebcb8b #282828
-#    }
-#    status_command i3status
-#}
+gaps inner 5
+smart_gaps inverse_outer
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 4
+for_window [class=".*"] border pixel 2
 assign [class=URxvt] 1
 assign [class=Firefox|Transmission-gtk] 2
 assign [class=Thunar|File-roller] 3
