@@ -15,16 +15,20 @@ exec --no-startup-id betterlockscreen -u "$HOME/Pictures/Wallpapers"
 exec --no-startup-id source ~/.fehbg
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
+#exec_always --no-startup-id xborders --smart-hide-border -c ~/.config/i3/xborders.json
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l -w dim -- --no-fork
+
+# Setup xss-lock daemon
+exec_always --no-startup-id xset +dpms dpms 0 300 300
+exec_always --no-startup-id xss-lock --transfer-sleep-lock ~/.config/i3/betterlockscreenwrapper.sh -v -- $HOME/.config/i3/i3lock.sh
 
 # start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
 bindsym $super+Return exec konsole
 
 # start dmenu (a program launcher)
-#bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Iosevka:size=12'"
-bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show combi -sidebar-mode -columns 3 -font 'Iosevka 14'
+#bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Iosevka:size=11'"
+bindsym $super+d exec rofi -lines 5 -padding 18 -width 60 -location 0 -show combi -sidebar-mode -columns 1 -font 'Iosevka 14'
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
