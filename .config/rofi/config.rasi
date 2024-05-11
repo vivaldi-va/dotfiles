@@ -1,6 +1,6 @@
 configuration {
 	modi: "combi";
-  font: "Fira Code 14";
+  font: "Iosevka Term 12";
 	combi-modi: "window,run";
   fixed-num-lines: true;
   max-history-size: 5;
@@ -18,4 +18,5 @@ configuration {
   }
 }
 
-@theme "gruvbox-dark"
+//@theme "gruvbox-dark"
+@theme "~/WebProjects/dotfiles/rofiThemes/type01/theme.rasi"
