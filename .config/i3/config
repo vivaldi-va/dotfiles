@@ -14,8 +14,9 @@ exec --no-startup-id feh -r --randomize --bg-fill "$HOME/Pictures/Wallpapers"
 exec --no-startup-id betterlockscreen -u "$HOME/Pictures/Wallpapers"
 exec --no-startup-id source ~/.fehbg
 exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -b
-#exec_always --no-startup-id xborders --smart-hide-border -c ~/.config/i3/xborders.json
+#exec --no-startup-id compton -b
+exec --no-startup-id picom -b --config "$HOME/.config/picom/config.conf"
+exec_always --no-startup-id xborders --smart-hide-border -c ~/.config/i3/xborders.json
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Setup xss-lock daemon
@@ -138,7 +139,7 @@ for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
-client.focused              #af3a03 #282828 #d5c4a1 #af3a03 #d5c4a1
+client.focused              #af3a03 #282828 #d5c4a1 #af3a03 #458588
 client.focused_inactive     #282828 #282828 #d5c4a1 #282828 #282828
 client.unfocused            #282828 #282828 #d5c4a1 #282828 #282828
 client.urgent               #282828 #282828 #d5c4a1 #282828 #282828
