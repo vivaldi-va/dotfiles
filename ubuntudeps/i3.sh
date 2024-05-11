@@ -3,7 +3,7 @@
 sudo apt-get update > /dev/null && \
   sudo apt-get install -y -qq \
     i3 \
-    compton \
+    picom \
     hsetroot \
     rxvt-unicode \
     xsel \
@@ -13,7 +13,8 @@ sudo apt-get update > /dev/null && \
     xsettingsd \
     lxappearance \
     scrot \
-    viewnior
+    viewnior \
+    brightnessctl
 
 ./i3lock-color.sh
 

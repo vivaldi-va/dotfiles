@@ -53,6 +53,9 @@ bindsym XF86AudioPrev exec mpv prev
 bindsym XF86AudioPlay exec mpv toggle
 bindsym XF86AudioStop exec mpv stop
 
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
 # kill focused window
 bindsym $super+c kill
 bindsym $alt+F4 kill
