@@ -9,7 +9,8 @@ fi
 REPO=be5invis/Iosevka
 LATEST_VERSION=$(curl -sL api.github.com/repos/${REPO}/releases/latest | jq .tag_name | sed 's/v//' | sed 's/"//g')
 echo $LATEST_VERSION
-ARCHIVE_URL=https://github.com/${REPO}/releases/download/v${LATEST_VERSION}/super-ttc-iosevka-${LATEST_VERSION}.zip
+#ARCHIVE_URL=https://github.com/${REPO}/releases/download/v${LATEST_VERSION}/super-ttc-iosevka-${LATEST_VERSION}.zip
+ARCHIVE_URL=https://github.com/${REPO}/releases/download/v${LATEST_VERSION}/PkgTTC-Iosevka-${LATEST_VERSION}.zip
 
 TEMP_DIR=/tmp/iosevka
 mkdir -p $TEMP_DIR
