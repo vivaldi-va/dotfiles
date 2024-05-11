@@ -9,7 +9,10 @@ print() {
         time_sec=$(($current_ts - $connection_ts))
         time_min=$(($time_sec / 60))
 
-        if [[ $time_min -gt 60 ]]; then
+        if [[ $time_min -gt 1440 ]]; then
+          time_remain=$((time_min%1440))
+          time="$((time_min / 1440))d $((time_min / 1440))h"
+        elif [[ $time_min -gt 60 ]]; then
           time_remain=$((time_min%60))
           time="$((time_min / 60))h ${time_remain}m"
         else
