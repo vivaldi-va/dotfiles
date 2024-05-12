@@ -23,9 +23,15 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xset +dpms dpms 0 300 300
 exec_always --no-startup-id xss-lock --transfer-sleep-lock ~/.config/i3/betterlockscreenwrapper.sh -v -- $HOME/.config/i3/i3lock.sh
 
+set_from_resource $bg i3wm.color0 #282828
+set_from_resource $red i3wm.color1 #af3a03
+set_from_resource $blue i3wm.color4 #458588
+set_from_resource $fg i3wm.color7 #d5c4a1
+
 # start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
-bindsym $super+Return exec konsole
+#bindsym $super+Return exec konsole
+bindsym $super+Return exec urxvt
 
 # start dmenu (a program launcher)
 #bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Iosevka:size=11'"
@@ -40,7 +46,8 @@ bindsym $super+Shift+w exec firefox
 bindsym $super+Shift+f exec thunar;workspace 3;focus
 bindsym $super+Shift+g exec geany
 
-bindsym $super+Shift+d exec feh -r --randomize --bg-fill "$HOME/Pictures/Wallpapers"
+#bindsym $super+Shift+d exec feh -r --randomize --bg-fill "$HOME/Pictures/Wallpapers" && wal -i $(cat ~/.fehbg | awk -F "'" '{print $2}') --backend haishoku
+bindsym $super+Shift+d exec ~/.config/i3/i3wal.sh
 
 #change volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
@@ -142,9 +149,9 @@ for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
-client.focused              #af3a03 #282828 #d5c4a1 #af3a03 #458588
-client.focused_inactive     #282828 #282828 #d5c4a1 #282828 #282828
-client.unfocused            #282828 #282828 #d5c4a1 #282828 #282828
-client.urgent               #282828 #282828 #d5c4a1 #282828 #282828
-client.placeholder          #282828 #282828 #d5c4a1 #282828 #282828
-client.background           #282828
+client.focused              $red  $bg $fg $red  $blue
+client.focused_inactive     $bg   $bg $fg $bg   $bg
+client.unfocused            $bg   $bg $fg $bg   $bg
+client.urgent               $bg   $bg $fg $bg   $bg
+client.placeholder          $bg   $bg $fg $bg   $bg
+client.background           $bg

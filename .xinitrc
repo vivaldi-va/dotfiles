@@ -3,10 +3,3 @@ xrdb -load ~/.Xresources &
 
 # -R restores the last colorscheme that was in use.
 wal -R
-
-setxkbmap -layout 'gb' -option '' -option 'grp:alt_shift_toggle' -option 'caps:escape'
-
-# Initiates i3wm
-exec i3
-
-setxkbmap -layout 'gb' -option '' -option 'grp:alt_shift_toggle' -option 'caps:escape'
