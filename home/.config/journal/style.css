@@ -74,6 +74,12 @@ h2 {
   font-weight: 600;
 }
 
+h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 ul {
   margin-left: 2em;
 }

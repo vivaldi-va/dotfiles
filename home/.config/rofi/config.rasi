@@ -19,4 +19,4 @@ configuration {
 }
 
 //@theme "gruvbox-dark"
-@theme "~/WebProjects/dotfiles/rofiThemes/type01/theme.rasi"
+@theme "~/.config/rofi/themes/type01/theme.rasi"

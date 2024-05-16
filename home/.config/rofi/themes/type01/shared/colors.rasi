@@ -17,4 +17,9 @@
 
 /*@import "~/.config/rofi/colors/onedark.rasi"*/
 
+* {
+  urgent: @gruvbox-dark-red-dark;
+  active: @gruvbox-dark-yellow-dark;
+}
+
 @theme "gruvbox-dark"

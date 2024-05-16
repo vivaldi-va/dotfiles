@@ -9,6 +9,10 @@
 
 set -euo pipefail
 
+if [ $# -eq 1 ]; then
+  TITLE=$1
+fi
+
 DATE="$(date --iso-8601=date)"
 DATETIME="$(date --iso-8601=seconds)"
 DATE_FORMATTED=$(date "+%D %T")
@@ -21,8 +25,14 @@ mkdir -p "$BASE"
 mkdir -p "$WEBROOT"
 mkdir -p "$CONFIG_ROOT"
 
-DAILY="$BASE"/"$DATE".md
-DAILY_HTML="$WEBROOT"/"$DATE".html
+if [ -z "${TITLE:-}" ]; then
+  DAILY="$BASE"/"$DATE".md
+  DAILY_HTML="$WEBROOT"/"$DATE".html
+else
+  DAILY="$BASE"/"$TITLE".md
+  DAILY_HTML="$WEBROOT"/"$TITLE".html
+fi
+
 STYLES="$HOME/.config/journal/style.css"
 
 [ ! -f "$STYLES" ] && touch $STYLES
@@ -36,7 +46,12 @@ insert() {
 
 if [ ! -f "$DAILY" ]; then
     insert '---'
-    insert "title: ${DATE}"
+    if [ -z "${TITLE:-}" ]; then
+      insert "title: ${DATE}"
+    else
+      insert "title: ${TITLE}"
+    fi
+
     insert "created: ${DATE}"
     insert '---'
 
