@@ -24,20 +24,11 @@ fi
 
 $copy -rfT --symbolic-link $(pwd)/home ~/
 
-# symlink .config directory and contents to $HOME/.config
-$copy -rf --symbolic-link $(pwd)/home/.config/* ~/.config/
-
-# symlink .local directory and contents to $HOME/.local
-$copy -rf --symbolic-link $(pwd)/home/.local/* ~/.local/
-
-$copy -rf --symbolic-link $(pwd)/home/.ssh/* ~/.ssh/
-#$copy -rf --symbolic-link $(pwd)/bin/* ~/.bin/
+# copy bin directory
+sudo $copy -rf --symbolic-link $(pwd)/usr /usr
 
 # copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then
-  ln -sf $(pwd)/.xinitrc ~/.xinitrc
-  ln -sf $(pwd)/.xprofile ~/.xprofile
-  ln -sf $(pwd)/.Xresources ~/.Xresources
   [ ! -d "$HOME/.config/rofi/themes/gruvbox" ] && \
     git clone https://github.com/vivaldi-va/gruvbox-rofi ~/.config/rofi/themes/gruvbox
   [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && \
@@ -54,12 +45,8 @@ if [[ $OS == 'Arch Linux' ]]; then
 
 fi
 
-ln -sf $(pwd)/home/.gitconfig ~/.gitconfig
-ln -sf $(pwd)/home/.ignore ~/.ignore
-
 # tmux config
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -sf $(pwd)/home/.tmux.conf ~/.tmux.conf
 
 ## use OS-specific config overrides, setting correct theme etc
 ## e.g. arch uses theme configured for Wal
@@ -75,16 +62,9 @@ fi
 # copy scripts
 sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 
-# Crontabs (only non-mac OS)
-#if [[ $OS != 'Darwin' ]];then
-#  sudo touch /var/log/cron.log
-#  sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
-#fi
 if [[ $OS != 'Darwin' ]];then
   sudo touch /var/log/cron.log
   sudo $copy -rf --symbolic-link $(pwd)/etc /etc
-  #sudo $copy -rf --symbolic-link $(pwd)/cron/daily/* /etc/cron.daily/
-  #sudo $copy -rf --symbolic-link $(pwd)/cron/hourly/* /etc/cron.hourly/
 fi
 
 
@@ -120,8 +100,5 @@ git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
 if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
 fi
-
-# copy bin directory
-sudo $copy -rf --symbolic-link $(pwd)/usr /usr
 
 echo "Init complete"
