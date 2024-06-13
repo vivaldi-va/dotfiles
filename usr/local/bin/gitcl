@@ -14,5 +14,12 @@ if [ ! -z "$2" ]; then
   newSha=$2
 fi
 
-repo=$(git remote get-url origin  | cut -f2 -d ":" | cut -f1 -d .)
+origin=$(git remote get-url origin)
+
+if [[ $origin =~ "https://" ]]; then
+  repo=$(echo $origin | sed "s|https://github.com/||")
+else
+  repo=$(echo $origin | cut -f2 -d ":" | cut -f1 -d .)
+fi
+
 git log --format='%h %an: %s' $oldSha..$newSha | sed "s|(#|(${repo}#|g"
