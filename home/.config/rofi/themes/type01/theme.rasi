@@ -8,16 +8,16 @@
  **/
 
 /*****----- Configuration -----*****/
-configuration {
-  modi:                       "drun";
-  show-icons:                 true;
-  display-drun:               "drun :";
-  display-run:                "";
-  display-filebrowser:        "";
-  display-window:             "";
-  drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-  window-format:              "{w} · {c} · {t}";
-}
+//configuration {
+//  modi:                       "drun";
+//  show-icons:                 true;
+//  display-drun:               "drun :";
+//  display-run:                "";
+//  display-filebrowser:        "";
+//  display-window:             "";
+//  drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+//  window-format:              "{w} · {c} · {t}";
+//}
 
 /*****----- Global Properties -----*****/
 @import                          "shared/colors.rasi"
@@ -33,14 +33,16 @@ configuration {
     normal-foreground:           var(foreground);
     urgent-background:           var(urgent);
     urgent-foreground:           var(background);
-    active-background:           var(active);
+    //active-background:           var(active);
+    active-background:           @gruvbox-dark-yellow-light;
     active-foreground:           var(background);
     selected-normal-background:  var(selected);
     selected-normal-foreground:  var(background);
     selected-urgent-background:  var(active);
     selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
+    //selected-active-background:  var(urgent);
+    selected-active-background:  @gruvbox-dark-red-light;
+    selected-active-foreground:  var(foreground);
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
     alternate-urgent-background: var(urgent);
@@ -56,6 +58,7 @@ window {
     location:                    center;
     anchor:                      center;
     //fullscreen:                  true;
+    opacity: 50%;
     width:                       720px;
     height:                      480px;
     x-offset:                    0px;
@@ -176,6 +179,8 @@ element normal.urgent {
 element normal.active {
     background-color:            var(active-background);
     text-color:                  var(active-foreground);
+    border: 2px solid;
+    border-color: var(active-background);
 }
 element selected.normal {
     background-color:            white / 5%;

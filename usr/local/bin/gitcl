@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+if [  $# -lt 1 ]; then
+  printf "Usage: \n \
+    $0 <oldSha1> (<newSha1>)" >&2
+fi
+
+oldSha=$1
+newSha=HEAD
+
+if [ ! -z "$2" ]; then
+  newSha=$2
+fi
+
+repo=$(git remote get-url origin  | cut -f2 -d ":" | cut -f1 -d .)
+git log --format='%h %an: %s' $oldSha..$newSha | sed "s|(#|(${repo}#|g"

@@ -21,20 +21,14 @@ else
   copy=cp
 fi
 
-# symlink .config directory and contents to $HOME/.config
-$copy -rf --symbolic-link $(pwd)/.config/* ~/.config/
 
-# symlink .local directory and contents to $HOME/.local
-$copy -rf --symbolic-link $(pwd)/.local/* ~/.local/
+$copy -rfT --symbolic-link $(pwd)/home ~/
 
-$copy -rf --symbolic-link $(pwd)/.ssh/* ~/.ssh/
-$copy -rf --symbolic-link $(pwd)/bin/* ~/.bin/
+# copy bin directory
+sudo $copy -rf --symbolic-link $(pwd)/usr /usr
 
 # copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then
-  ln -sf $(pwd)/.xinitrc ~/.xinitrc
-  ln -sf $(pwd)/.xprofile ~/.xprofile
-  ln -sf $(pwd)/.Xresources ~/.Xresources
   [ ! -d "$HOME/.config/rofi/themes/gruvbox" ] && \
     git clone https://github.com/vivaldi-va/gruvbox-rofi ~/.config/rofi/themes/gruvbox
   [ ! -d "$HOME/.config/scripts/rofi-wifi-menu" ] && \
@@ -51,17 +45,13 @@ if [[ $OS == 'Arch Linux' ]]; then
 
 fi
 
-ln -sf $(pwd)/.gitconfig ~/.gitconfig
-ln -sf $(pwd)/.ignore ~/.ignore
-
 # tmux config
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 
 ## use OS-specific config overrides, setting correct theme etc
 ## e.g. arch uses theme configured for Wal
-[ "$(lsb_release -si)" != "Arch" ] && ln -sf $(pwd)/.tmux.conf.default ~/.tmux.conf.local
-[ "$(lsb_release -si)" = "Arch" ] && ln -sf $(pwd)/.tmux.conf.arch ~/.tmux.conf.local
+[ "$(lsb_release -si)" != "Arch" ] && ln -sf $(pwd)/home/.tmux.conf.default ~/.tmux.conf.local
+[ "$(lsb_release -si)" = "Arch" ] && ln -sf $(pwd)/home/.tmux.conf.arch ~/.tmux.conf.local
 
 # set up dropbox-stored note taking
 if [ -d "$HOME/Drive" ]; then
@@ -72,15 +62,9 @@ fi
 # copy scripts
 sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 
-# Crontabs (only non-mac OS)
-#if [[ $OS != 'Darwin' ]];then
-#  sudo touch /var/log/cron.log
-#  sudo $copy -rf --symbolic-link $(pwd)/cron/* /etc/cron.d/
-#fi
 if [[ $OS != 'Darwin' ]];then
   sudo touch /var/log/cron.log
-  sudo $copy -rf --symbolic-link $(pwd)/cron/daily/* /etc/cron.daily/
-  sudo $copy -rf --symbolic-link $(pwd)/cron/hourly/* /etc/cron.hourly/
+  sudo $copy -rf --symbolic-link $(pwd)/etc /etc
 fi
 
 
@@ -102,21 +86,19 @@ touch ~/.zsh-history
 
 ## copy custom omzsh scripts if omzsh exists
 #[ ! -d "$HOME/.oh-my-zsh" ] && mkdir $HOME/.oh-my-zsh
-$copy -rf --symbolic-link $(pwd)/.oh-my-zsh/* ~/.oh-my-zsh/
-ln -sf $(pwd)/.zshrc ~/.zshrc
+$copy -rf --symbolic-link $(pwd)/home/.oh-my-zsh/* ~/.oh-my-zsh/
+ln -sf $(pwd)/home/.zshrc ~/.zshrc
 
 # set up vim/neovim
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/vim/backup_files
 mkdir -p ~/.config/vim/undo_files
-[ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
+#[ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
+git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
 
 # install node js and utils
 if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
 fi
-
-# copy bin directory
-sudo $copy -rf --symbolic-link $(pwd)/bin/* /usr/local/bin
 
 echo "Init complete"
