@@ -25,7 +25,7 @@ fi
 $copy -rfT --symbolic-link $(pwd)/home ~/
 
 # copy bin directory
-sudo $copy -rf --symbolic-link $(pwd)/usr /usr
+sudo $copy -rf --symbolic-link $(pwd)/usr /
 
 # copy x files for arch theme etc.
 if [[ $OS == 'Arch Linux' ]]; then
