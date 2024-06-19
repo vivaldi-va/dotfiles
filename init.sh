@@ -64,7 +64,7 @@ sudo $copy -rf --symbolic-link $(pwd)/Scripts/* /usr/local/bin/
 
 if [[ $OS != 'Darwin' ]];then
   sudo touch /var/log/cron.log
-  sudo $copy -rf --symbolic-link $(pwd)/etc /etc
+  sudo $copy -rf --symbolic-link $(pwd)/etc /
 fi
 
 
