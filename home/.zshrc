@@ -142,6 +142,7 @@ alias gcd='git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/orig
 alias dc='docker-compose'
 alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
+alias ls='ls -FG --hyperlink=auto --color=auto'
 
 alias ta='tmux attach-session -t'
 alias jqr="jq -R 'fromjson? | select(type == \"object\")'"
