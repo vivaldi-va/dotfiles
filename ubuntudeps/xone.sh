@@ -1,10 +1,10 @@
 #!/bin/bash
 
-git clone https://github.com/medusalix/xone
+git clone https://github.com/medusalix/xone /tmp/xone
 
-cd xone
+cd /tmp/xone
 sudo ./install.sh --release
 
 sudo xone-get-firmware.sh --skip-disclaimer
 
-rm -rf xone
+rm -rf /tmp/xone
