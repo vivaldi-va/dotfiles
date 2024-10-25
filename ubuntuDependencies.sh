@@ -15,7 +15,9 @@ sudo apt-get update > /dev/null && \
     autotools-dev \
     build-essential \
     fuse libfuse2 \
-    rdate
+    rdate \
+    # alternate git diff
+    git-delta
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
