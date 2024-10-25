@@ -5,7 +5,7 @@
 [url "https://"]
   insteadOf = git://
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [push]
   default = simple
 [core]
@@ -28,10 +28,10 @@
   pf = push --force-with-lease
   cd = symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' # checkout default branch
 [filter "strongbox"]
-	clean = strongbox -clean %f
-	smudge = strongbox -smudge %f
-	required = true
+  clean = strongbox -clean %f
+  smudge = strongbox -smudge %f
+  required = true
 [diff "strongbox"]
-	textconv = strongbox -diff
+  textconv = strongbox -diff
 [pull]
-	ff = only
+  ff = only

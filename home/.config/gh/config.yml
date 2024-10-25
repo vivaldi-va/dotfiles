@@ -7,3 +7,4 @@ aliases:
     co: pr checkout
     s: pr status
     prlink: pr view --json url --jq .url
+version: "1"
