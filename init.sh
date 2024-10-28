@@ -98,7 +98,7 @@ git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
 
 # install node js and utils
 if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 fi
 
 echo "Init complete"
