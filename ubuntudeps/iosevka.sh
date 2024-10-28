@@ -22,3 +22,4 @@ unzip $TEMP_DIR/iosevka.zip -d $HOME/.fonts/
 
 rm -rf $TEMP_DIR
 
+fc-cache -fv
