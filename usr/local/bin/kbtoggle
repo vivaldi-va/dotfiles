@@ -4,6 +4,8 @@ set -e
 
 # xinput list
 kbid=8
+kbidSys=9
+kbidConsumer=10
 
 if [ ! -f ~/.keyboard-status ]; then
   touch ~/.keyboard-status
@@ -11,10 +13,14 @@ fi
 
 if [[ $(<~/.keyboard-status) == "enabled" ]]; then
   xinput --disable $kbid
+  xinput --disable $kbidSys
+  xinput --disable $kbidConsumer
   echo "disabled" > ~/.keyboard-status
   notify-send 'Keyboard disabled' --icon=dialog-information
 else
   xinput --enable $kbid
+  xinput --enable $kbidSys
+  xinput --enable $kbidConsumer
   echo "enabled" > ~/.keyboard-status
   notify-send 'Keyboard enabled' --icon=dialog-information
 fi
