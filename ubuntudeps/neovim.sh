@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo Installing NeoVIM
-curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim.appimage > /tmp/nvim.appimage && \
+curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage > /tmp/nvim.appimage && \
   sudo mv /tmp/nvim.appimage /usr/local/bin/nvim && \
   chmod u+x /usr/local/bin/nvim
 
