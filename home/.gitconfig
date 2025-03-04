@@ -6,8 +6,22 @@
   insteadOf = git://
 [url "git@github.com:"]
   insteadOf = https://github.com/
+
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
 [push]
   default = simple
+  autoSetupRemote = true
+  followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+
 [core]
   editor = nvim
   pager = delta
