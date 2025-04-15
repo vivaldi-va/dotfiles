@@ -3,9 +3,9 @@
 set -e
 
 # xinput list
-kbid=8
-kbidSys=9
-kbidConsumer=10
+kbid=$(xinput list --id-only 'Metadot - Das Keyboard Das Keyboard')
+kbidSys=$(xinput list --id-only 'Metadot - Das Keyboard Das Keyboard System Control')
+kbidConsumer=$(xinput list --id-only 'Metadot - Das Keyboard Das Keyboard Consumer Control')
 
 if [ ! -f ~/.keyboard-status ]; then
   touch ~/.keyboard-status
