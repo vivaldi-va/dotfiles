@@ -144,6 +144,8 @@ alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'
 alias ls='ls -FG --hyperlink=auto --color=auto'
 
+alias ducks='du -cks -- * | sort -rn | head'
+
 alias ta='tmux attach-session -t'
 alias jqr="jq -R 'fromjson? | select(type == \"object\")'"
 
