@@ -167,7 +167,7 @@ alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
 alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
 alias jsontidy="xclip -out | jq '.' | xclip"
-alias tasks='git grep -EI "^(\/\/|\*)\s*(TODO|FIXME)"'
+alias tasks='git grep -A 1 -EI "(\/\/|\*)\s*(TODO|FIXME)"'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/java/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
