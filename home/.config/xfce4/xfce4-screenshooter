@@ -6,7 +6,6 @@ app=feh
 last_user=
 action=2
 last_extension=png
-enable_imgur_upload=true
 show_border=1
 show_in_folder=false
 custom_action_command=/usr/libexec/xfce4/screenshooter/scripts/imgur-upload.sh %f %imgur_client_id
