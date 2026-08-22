@@ -91,8 +91,7 @@ ln -sf $(pwd)/home/.zshrc ~/.zshrc
 
 # set up vim/neovim
 mkdir -p ~/.config/nvim
-mkdir -p ~/.config/vim/backup_files
-mkdir -p ~/.config/vim/undo_files
+
 #[ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
 git clone https://github.com/vivaldi-va/nvim-config.git ~/.config/nvim/
 

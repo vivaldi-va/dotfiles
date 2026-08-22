@@ -18,7 +18,8 @@ sudo apt-get update > /dev/null && \
     rdate \
     # alternate git diff
     git-delta \
-    age
+    age \
+    pipx
 
 ./ubuntudeps/neovim.sh
 ./ubuntudeps/fd.sh
