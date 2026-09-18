@@ -1,6 +1,6 @@
 zmodload zsh/zutil
 
-function mkgp() {
+function mkdp() {
   zparseopts -D -E -F -A opts - \
     h=help -help=help \
     n:=namespace -namespace:=namespace \
@@ -11,14 +11,16 @@ function mkgp() {
   local mkctlEx="microk8s kubectl"
   local namespace="${namespace[-1]:-\"default\"}"
   local resource="${resource[-1]:-pod}"
-  local label=""
+  #local label="${label[-1]:-''}"
   local describe=(
-    "microk8s kubectl helper to get a \"describe\" for a defined resource in a namespace"
+    "microk8s kubectl helper to get a \"describe\" for a defined resource in a namespace\n"
+    "e.g. \n\t$0 -n default -r pod -l app=example\n"
+    "\t$0 -n kube-system -r svc -l app.kubernetes.io/name=example"
   )
   local usage=(
     "Usage (defaults shown):"
-    "\tmkgp [-h|--help]"
-    "\tmkgp [-r|--resource pod] [-n|--namespace default] -l|--label"
+    "\t$0 [-h|--help]"
+    "\t$0 [-r|--resource pod] [-n|--namespace default] -l|--label"
   )
   local man=(
     "Options:"
@@ -52,10 +54,10 @@ function mkgp() {
     return 1
   fi
 
-  local resource_result=$(kubectl -n ${namespace} get ${resource} -l ${opts[-l]} --no-headers -o name|cut -d/ -f2|head -1)
+  local resource_result=$(microk8s kubectl -n ${namespace} get ${resource} -l ${label[-1]} --no-headers -o name|cut -d/ -f2|head -1)
 
   if [[ -z $resource_result ]]; then
-    echo >&2 "no resource of type '${resource}' found in namespace: '${namespace}' with label: '${opts[-l]}'"
+    echo >&2 "no resource of type '${resource}' found in namespace: '${namespace}' with label: '${label[-1]}'"
     return 1
   fi
 
