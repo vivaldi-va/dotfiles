@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+
+# ytdl-playlist.sh — download a YouTube playlist into a Jellyfin "Shows" layout,
+# with local NFO metadata and artwork so Jellyfin never has to guess.
+#
+# Produces:
+#   <root>/Channel Name/Playlist Title/
+#     tvshow.nfo
+#     poster.jpg
+#     playlist.info.json
+#     Season 01/
+#       S01E01 - Video Title.mp4
+#       S01E01 - Video Title.nfo
+#       S01E01 - Video Title-thumb.jpg
+#       S01E01 - Video Title.info.json
+#
+# Usage: ytdl_playlist <playlist ID or URL> [destination root]
+
+ytdl_playlist() {
+  local id root url tmpl pl_tmpl probe series_dir
+
+  if [ "$#" -lt 1 ]; then
+    printf 'Usage: ytdl_playlist <playlist ID or URL> [destination root]\n' >&2
+    return 1
+  fi
+
+  id=$1
+  root=${2:-$PWD}
+
+  case "$id" in
+    http*) url=$id ;;
+    *)     url="https://www.youtube.com/playlist?list=${id}" ;;
+  esac
+
+  # Same channel/playlist prefix for both templates so the paths line up.
+  local prefix='%(channel,playlist_uploader,uploader|Unknown Channel)s/%(playlist_title,playlist|Unknown Playlist)s'
+  tmpl="${prefix}/Season 01/S01E%(playlist_index)02d - %(title).120B.%(ext)s"
+  pl_tmpl="${prefix}/playlist.%(ext)s"
+
+  # Resolve the series directory up front, using yt-dlp's own sanitiser, so the
+  # post-processing step knows where to look even when nothing new downloads.
+  probe=$(yt-dlp --quiet --no-warnings --flat-playlist --playlist-items 1 \
+            --paths "$root" -o "$tmpl" --print filename "$url") || return 1
+  [ -n "$probe" ] || { printf 'Could not read playlist: %s\n' "$url" >&2; return 1; }
+  case "$probe" in
+    /*) : ;;
+    *)  probe="$root/$probe" ;;
+  esac
+  series_dir=$(dirname "$(dirname "$probe")")
+
+  yt-dlp \
+    -t mp4 \
+    --paths "$root" \
+    -o "$tmpl" \
+    -o "pl_infojson:$pl_tmpl" \
+    --write-info-json \
+    --write-thumbnail \
+    --convert-thumbnails jpg \
+    --no-embed-metadata \
+    --no-overwrites \
+    --ignore-errors \
+    --js-runtimes node \
+    --download-archive "$root/.ytdl-archive.txt" \
+    "$url"
+
+  ytdl_write_nfo "$series_dir"
+}
+
+# Turn the .info.json files yt-dlp left behind into Jellyfin-readable NFO +
+# artwork. Safe to re-run on an existing directory.
+ytdl_write_nfo() {
+  local series_dir=$1
+  [ -d "$series_dir" ] || { printf 'No such directory: %s\n' "$series_dir" >&2; return 1; }
+
+  python3 - "$series_dir" <<'PY'
+import json, shutil, sys
+from pathlib import Path
+from xml.sax.saxutils import escape
+
+series = Path(sys.argv[1])
+
+def clean(text):
+    if text is None:
+        return None
+    text = str(text).replace("\r\n", "\n")
+    text = "".join(c for c in text if c == "\n" or c == "\t" or ord(c) >= 32)
+    return text.strip() or None
+
+def el(tag, value, attrs=""):
+    value = clean(value)
+    if value is None:
+        return ""
+    return f"  <{tag}{attrs}>{escape(value)}</{tag}>\n"
+
+def write(path, body):
+    path.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + body,
+                    encoding="utf-8")
+
+def aired(info):
+    d = info.get("upload_date") or ""
+    return f"{d[0:4]}-{d[4:6]}-{d[6:8]}" if len(d) == 8 else None
+
+# ---------- tvshow.nfo ----------
+pl_path = series / "playlist.info.json"
+pl = json.loads(pl_path.read_text(encoding="utf-8")) if pl_path.exists() else {}
+title = pl.get("title") or series.name
+channel = pl.get("channel") or pl.get("uploader") or series.parent.name
+
+body = "<tvshow>\n"
+body += el("title", title)
+body += el("originaltitle", title)
+body += el("showtitle", title)
+body += el("sorttitle", title)
+body += el("plot", pl.get("description"))
+body += el("studio", channel)
+body += el("genre", "YouTube")
+body += el("premiered", aired(pl))
+if pl.get("id"):
+    body += el("uniqueid", pl["id"], ' type="youtube" default="true"')
+body += "  <lockdata>true</lockdata>\n</tvshow>\n"
+write(series / "tvshow.nfo", body)
+
+# ---------- episodes ----------
+episodes = sorted(series.glob("Season */*.info.json"))
+first_thumb = None
+count = 0
+
+for meta_path in episodes:
+    info = json.loads(meta_path.read_text(encoding="utf-8"))
+    base = meta_path.with_suffix("").with_suffix("")   # strip .info.json
+    season, number = 1, info.get("playlist_index") or 0
+
+    body = "<episodedetails>\n"
+    body += el("title", info.get("title"))
+    body += el("showtitle", title)
+    body += f"  <season>{season}</season>\n  <episode>{number}</episode>\n"
+    body += el("plot", info.get("description"))
+    body += el("studio", info.get("channel") or channel)
+    body += el("aired", aired(info))
+    body += el("premiered", aired(info))
+    if info.get("duration"):
+        body += el("runtime", round(info["duration"] / 60))
+    if info.get("id"):
+        body += el("uniqueid", info["id"], ' type="youtube" default="true"')
+    body += "  <lockdata>true</lockdata>\n</episodedetails>\n"
+    write(base.with_suffix(".nfo"), body)
+    count += 1
+
+    # Jellyfin wants "<episode filename>-thumb.jpg" next to the video.
+    plain, thumb = base.with_suffix(".jpg"), Path(str(base) + "-thumb.jpg")
+    if plain.exists() and not thumb.exists():
+        plain.rename(thumb)
+    if first_thumb is None and thumb.exists():
+        first_thumb = thumb
+
+# ---------- series poster ----------
+poster = series / "poster.jpg"
+if not poster.exists() and first_thumb is not None:
+    shutil.copy2(first_thumb, poster)
+
+print(f"Wrote metadata for {count} episode(s) in {series}")
+PY
+}
+
+# Allow the file to be sourced (defines the functions) or executed directly.
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+  ytdl_playlist "$@"
+fi
