@@ -128,6 +128,13 @@ export NVM_DIR="$HOME/.nvm"
 
 # unalias  gcp to allow use of gnu cp
 unalias -m 'gcp'
+
+alias ports='ss -tulpn'
+alias listening='nmap localhost'
+alias update='sudo apt update && sudo apt upgrade'
+alias uplist='sudo apt update && sudo apt list --upgradable'
+alias installed='sudo apt list --installed'
+
 alias vim='nvim'
 alias mkctl='microk8s kubectl'
 alias mhelm='microk8s helm'
@@ -137,9 +144,13 @@ alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
 alias cm='echo "$(ticketnum) $commit_msg" > ~/.gitcommittemplate; git commit -vt ~/.gitcommittemplate'
 alias cmn='cm --noValidate'
 
+# git
 alias gf='git fetch --prune'
 alias sl='git shortlog --no-merges --since=\"$(date '+%Y')-$(date '+%m')-01\"'
 alias gcd='git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"'
+# Get a list with the most changed files from 12 months ago
+alias glc="git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50"
+
 alias dc='docker-compose'
 alias so='source ~/.zshrc'
 alias ag='ag -u --path-to-ignore ~/.ignore --pager="less -XFR"'

@@ -36,11 +36,15 @@
   sl = shortlog -30 --no-merges
   cl = log --format='%h %an: %s'
   s = status
+  ss = !git --no-pager -c color.ui=always status -s -b
   diff = diff -w
   d = diff -w
   dc = diff -w --cached
   pf = push --force-with-lease
   cd = symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' # checkout default branch
+  # Get commits list by DESC order
+  lf = for-each-ref --sort=-committerdate
+
 [filter "strongbox"]
 	clean = strongbox -clean %f
 	smudge = strongbox -smudge %f
