@@ -4,5 +4,5 @@ function ytdl_playlist() {
       $0 <playlist ID>" >&2
   fi
 
-  yt-dlp -t mp4 -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" https://www.youtube.com/playlist\?list\=$1
+  yt-dlp -t mp4 -o "%(channel)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" https://www.youtube.com/playlist\?list\=$1
 }
