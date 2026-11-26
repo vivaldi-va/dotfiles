@@ -136,8 +136,11 @@ alias uplist='sudo apt update && sudo apt list --upgradable'
 alias installed='sudo apt list --installed'
 
 alias vim='nvim'
+
+# kube
 alias mkctl='microk8s kubectl'
 alias mhelm='microk8s helm'
+alias kdr='kubectl apply --dry-run=server'
 
 alias ticketnum="git rev-parse --abbrev-ref HEAD | grep -oE '[A-Z0-9]+-[0-9]+'"
 alias branchtype="git rev-parse --abbrev-ref HEAD | grep -oE '[a-z]+\/'"
@@ -178,7 +181,7 @@ alias whodoneit='git ls-tree --name-only -z -r HEAD -- $1 | xargs -0 -n1 git bla
 alias note="nvim +'normal Go' +'r!date' +'normal Go' +'normal ,p' ~/note.txt"
 alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
-alias jsontidy="xclip -out | jq '.' | xclip"
+alias jsontidy="xclip -out | jq '.' | tee >(xclip)"
 alias tasks='git grep -A 1 -EI "(\/\/|\*)\s*(TODO|FIXME)"'
 
 alias cal='ncal -b3'
