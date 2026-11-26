@@ -8,12 +8,13 @@ function cleanup {
 
 trap cleanup EXIT
 LATEST_VERSION=$(curl -sL api.github.com/repos/aristocratos/btop/releases/latest | jq .tag_name | sed 's/v//' | sed 's/"//g')
-FILENAME=btop-x86_64-linux-musl.tbz
+#FILENAME=btop-x86_64-linux-musl.tbz
+FILENAME=btop-x86_64-unknown-linux-musl.tar.gz
 URL=https://github.com/aristocratos/btop/releases/download/v${LATEST_VERSION}/${FILENAME}
 
 curl -sL ${URL} -o /tmp/${FILENAME}
 #mkdir -p /tmp/btop && tar -xjf /tmp/${FILENAME} -C /tmp/btop
-tar -xjf /tmp/${FILENAME} -C /tmp
+tar -xvzf /tmp/${FILENAME} -C /tmp
 
 cd /tmp/btop
 sudo make install
